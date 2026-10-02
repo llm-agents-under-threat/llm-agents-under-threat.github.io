@@ -33,6 +33,7 @@ test('GitHub Pages generator emits a complete standalone workshop site', async (
 
   assert.match(html, /LLM Agents Under Threat in Cyberspace/);
   assert.match(html, /AAAI-27 Workshop/);
+  assert.match(html, /mailto:llm-agents-under-threat@googlegroups\.com/);
   assert.match(html, /accepted for AAAI-27/);
   assert.doesNotMatch(html, /tentative|proposed workshop|under review|pending workshop confirmation|after workshop confirmation|subject to change/i);
   assert.match(html, /<h1 id="hero-title">LLM Agents Under Threat in Cyberspace<\/h1>/);

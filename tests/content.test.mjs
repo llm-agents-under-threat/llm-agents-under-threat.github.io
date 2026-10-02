@@ -23,7 +23,7 @@ test('accepted workshop content has the exact public workshop contract', () => {
   assert.equal(workshop.status, 'AAAI-27 Workshop');
   assert.equal(workshop.location, 'Montréal, Canada');
   assert.equal(workshop.date, 'February 22 or 23, 2027');
-  assert.equal(workshop.contact, 'xinfeng.li@polyu.edu.hk');
+  assert.equal(workshop.contact, 'llm-agents-under-threat@googlegroups.com');
   assert.equal(researchQuestions.length, 3);
   assert.equal(cfpTopics.length, 10);
   assert.equal(importantDates.length, 4);

@@ -5,7 +5,7 @@ export const workshop = {
   date: 'February 22 or 23, 2027',
   location: 'Montréal, Canada',
   format: 'Full-day, in person',
-  contact: 'xinfeng.li@polyu.edu.hk',
+  contact: 'llm-agents-under-threat@googlegroups.com',
   summary:
     'A focused forum for understanding how autonomous language-model agents fail under adversarial pressure—and how to build systems that remain reliable when inputs, tools, and collaborators cannot be trusted.',
 };
