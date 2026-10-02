@@ -35,6 +35,14 @@ test('GitHub Pages generator emits a complete standalone workshop site', async (
   assert.match(html, /AAAI-27 Workshop/);
   assert.match(html, /accepted for AAAI-27/);
   assert.doesNotMatch(html, /tentative|proposed workshop|under review|pending workshop confirmation|after workshop confirmation|subject to change/i);
+  assert.match(html, /<h1 id="hero-title">LLM Agents Under Threat in Cyberspace<\/h1>/);
+
+  const cfpSection = html.match(/<section class="content-section" id="cfp"[\s\S]*?<\/section>/)?.[0] ?? '';
+  assert.ok((cfpSection.match(/<p>/g) ?? []).length >= 3, 'CFP should include a substantial introduction and scope lead-in');
+  assert.equal((cfpSection.match(/<li>/g) ?? []).length, 10);
+
+  assert.match(styles, /\.hero h1\s*{[^}]*white-space:\s*nowrap/s);
+  assert.match(styles, /@media\s*\(max-width:\s*860px\)[\s\S]*\.hero h1\s*{[^}]*white-space:\s*normal/s);
   assert.match(html, /<table class="schedule-table">/);
   assert.match(html, /Niloofar Mireshghallah/);
   assert.match(html, /src="\.\/hero-montreal\.jpg"/);

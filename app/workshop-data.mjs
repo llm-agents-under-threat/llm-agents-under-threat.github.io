@@ -34,28 +34,53 @@ export const researchQuestions = [
 export const cfpTopics = [
   {
     number: '01',
-    title: 'Attacks on agent input channels',
-    text: 'Prompt injection, indirect injection, adversarial observations, poisoned memory and retrieval, multimodal manipulation, and context corruption.',
+    title: 'Direct and indirect prompt injection',
+    text: 'Attacks that use user inputs, retrieved content, web pages, documents, messages, or other untrusted context to redirect agent behavior.',
   },
   {
     number: '02',
-    title: 'Attacks on agent tool use',
-    text: 'Exploiting tools, browsers, code execution, credentials, APIs, permissions, and action planning to create unsafe or unauthorized outcomes.',
+    title: 'Adversarial observations and context manipulation',
+    text: 'Deceptive environmental feedback, context corruption, instruction conflicts, and attacks on an agent’s perception of its state or goals.',
   },
   {
     number: '03',
-    title: 'Multi-agent security',
-    text: 'Adversarial coordination, compromised agents, trust and identity, collusion, cascading failure, and security in agentic ecosystems.',
+    title: 'Memory and retrieval poisoning',
+    text: 'Persistent compromise through long-term memory, retrieval systems, knowledge bases, cached interactions, and cross-session state.',
   },
   {
     number: '04',
-    title: 'Defenses and secure architectures',
-    text: 'Isolation, monitoring, least privilege, secure tool interfaces, policy enforcement, provenance, recovery, and human oversight.',
+    title: 'Multimodal attacks against agents',
+    text: 'Manipulation delivered through images, audio, video, interfaces, documents, and mixed-modality observations.',
   },
   {
     number: '05',
+    title: 'Tool and privilege misuse',
+    text: 'Exploitation of browsers, code execution, APIs, credentials, permissions, external services, and action-planning pipelines.',
+  },
+  {
+    number: '06',
+    title: 'Multi-agent security',
+    text: 'Compromised agents, trust and identity, adversarial coordination, collusion, delegation failures, and cascading failures in agent ecosystems.',
+  },
+  {
+    number: '07',
+    title: 'Secure agent architectures',
+    text: 'Isolation, sandboxing, least privilege, safe tool interfaces, policy enforcement, capability control, and secure-by-design orchestration.',
+  },
+  {
+    number: '08',
+    title: 'Monitoring, provenance, and recovery',
+    text: 'Runtime detection, audit trails, provenance tracking, incident response, rollback, recovery, and effective human oversight.',
+  },
+  {
+    number: '09',
     title: 'Evaluation and benchmarking',
-    text: 'Threat models, red-teaming methods, realistic environments, metrics, reproducible benchmarks, and responsible disclosure practices.',
+    text: 'Realistic threat models, red-teaming methods, environments, metrics, datasets, reproducible benchmarks, and end-to-end evaluations.',
+  },
+  {
+    number: '10',
+    title: 'Responsible deployment and disclosure',
+    text: 'Operational lessons, deployment safeguards, defense limitations, vulnerability coordination, and responsible disclosure practices.',
   },
 ];
 
@@ -67,19 +92,19 @@ export const importantDates = [
 ];
 
 export const schedule = [
-  { time: '08:30–08:45', title: 'Opening remarks', type: 'Welcome' },
-  { time: '08:45–09:30', title: 'Keynote 1', type: 'Keynote' },
-  { time: '09:30–10:30', title: 'Paper session 1', type: 'Research' },
+  { time: '09:00–09:15', title: 'Opening remarks', type: 'Welcome' },
+  { time: '09:15–10:00', title: 'Keynote 1', type: 'Keynote' },
+  { time: '10:00–10:30', title: 'Paper session 1', type: 'Research' },
   { time: '10:30–11:00', title: 'Coffee break', type: 'Break' },
   { time: '11:00–11:30', title: 'Invited talk 1', type: 'Invited talk' },
-  { time: '11:30–12:10', title: 'Paper session 2', type: 'Research' },
-  { time: '12:10–13:30', title: 'Lunch break', type: 'Break' },
-  { time: '13:30–14:15', title: 'Keynote 2', type: 'Keynote' },
-  { time: '14:15–14:45', title: 'Invited talk 2', type: 'Invited talk' },
-  { time: '14:45–15:25', title: 'Paper session 3', type: 'Research' },
-  { time: '15:25–16:00', title: 'Coffee break & poster session', type: 'Poster' },
-  { time: '16:00–16:40', title: 'Panel discussion', type: 'Panel' },
-  { time: '16:40–16:45', title: 'Closing remarks & award', type: 'Closing' },
+  { time: '11:30–12:30', title: 'Paper session 2', type: 'Research' },
+  { time: '12:30–14:00', title: 'Lunch break', type: 'Break' },
+  { time: '14:00–14:45', title: 'Keynote 2', type: 'Keynote' },
+  { time: '14:45–15:30', title: 'Paper session 3', type: 'Research' },
+  { time: '15:30–16:00', title: 'Coffee break & poster session', type: 'Poster' },
+  { time: '16:00–16:30', title: 'Invited talk 2', type: 'Invited talk' },
+  { time: '16:30–17:10', title: 'Panel discussion', type: 'Panel' },
+  { time: '17:10–17:15', title: 'Closing remarks & award', type: 'Closing' },
 ];
 
 export const speakers = [

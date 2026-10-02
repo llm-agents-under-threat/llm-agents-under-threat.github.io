@@ -74,7 +74,7 @@ const html = `<!doctype html>
       <div class="hero-overlay" aria-hidden="true"></div>
       <div class="hero-content">
         <p class="workshop-status">${escapeHtml(workshop.status)}</p>
-        <h1 id="hero-title">LLM Agents Under Threat<br>in Cyberspace</h1>
+        <h1 id="hero-title">LLM Agents Under Threat in Cyberspace</h1>
         <p>AAAI-27 · ${escapeHtml(workshop.date)}</p>
         <p>${escapeHtml(workshop.location)} · ${escapeHtml(workshop.format)}</p>
         <p class="hero-contact">Contact: <a href="mailto:${escapeHtml(workshop.contact)}">${escapeHtml(workshop.contact)}</a></p>
@@ -97,7 +97,9 @@ const html = `<!doctype html>
 
       <section class="content-section" id="cfp" aria-labelledby="cfp-title">
         <h2 id="cfp-title">Call for Papers</h2>
-        <p>We invite technical, empirical, and position work on the security of LLM agents, including but not limited to:</p>
+        <p>LLM Agents Under Threat in Cyberspace invites submissions from researchers and practitioners studying how autonomous LLM agents behave when their observations, memories, tools, identities, and collaborators may be adversarial or compromised. As agents gain the ability to browse the web, execute code, call APIs, use credentials, access external services, and coordinate with other agents, traditional language-model vulnerabilities can become concrete security failures with consequences beyond the model interface.</p>
+        <p>The workshop connects research on attacks, defenses, evaluation, and secure system design. We welcome empirical studies, new benchmarks, red-teaming methods, secure architectures, position papers, datasets, and lessons from deployed systems. We are especially interested in work that develops realistic threat models, evaluates end-to-end agent behavior, and proposes defenses that remain effective against adaptive attackers.</p>
+        <p>Topics include, but are not limited to:</p>
         <ul class="topic-list-simple">${cfpTopics.map((topic) => `<li><strong>${escapeHtml(topic.title)}.</strong> ${escapeHtml(topic.text)}</li>`).join('')}</ul>
       </section>
 

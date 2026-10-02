@@ -109,7 +109,7 @@ export default function Home() {
           <div className="hero-overlay" aria-hidden="true" />
           <div className="hero-content">
             <p className="workshop-status">{workshop.status}</p>
-            <h1 id="hero-title">LLM Agents Under Threat<br />in Cyberspace</h1>
+            <h1 id="hero-title">LLM Agents Under Threat in Cyberspace</h1>
             <p>AAAI-27 · {workshop.date}</p>
             <p>{workshop.location} · {workshop.format}</p>
             <p className="hero-contact">Contact: <a href={`mailto:${workshop.contact}`}>{workshop.contact}</a></p>
@@ -134,7 +134,9 @@ export default function Home() {
 
           <section className="content-section" id="cfp" aria-labelledby="cfp-title">
             <h2 id="cfp-title">Call for Papers</h2>
-            <p>We invite technical, empirical, and position work on the security of LLM agents, including but not limited to:</p>
+            <p>LLM Agents Under Threat in Cyberspace invites submissions from researchers and practitioners studying how autonomous LLM agents behave when their observations, memories, tools, identities, and collaborators may be adversarial or compromised. As agents gain the ability to browse the web, execute code, call APIs, use credentials, access external services, and coordinate with other agents, traditional language-model vulnerabilities can become concrete security failures with consequences beyond the model interface.</p>
+            <p>The workshop connects research on attacks, defenses, evaluation, and secure system design. We welcome empirical studies, new benchmarks, red-teaming methods, secure architectures, position papers, datasets, and lessons from deployed systems. We are especially interested in work that develops realistic threat models, evaluates end-to-end agent behavior, and proposes defenses that remain effective against adaptive attackers.</p>
+            <p>Topics include, but are not limited to:</p>
             <ul className="topic-list-simple">
               {cfpTopics.map((topic) => <li key={topic.number}><strong>{topic.title}.</strong> {topic.text}</li>)}
             </ul>
