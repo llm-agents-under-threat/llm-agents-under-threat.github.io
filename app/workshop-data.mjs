@@ -1,7 +1,7 @@
 export const workshop = {
   title: 'LLM Agents Under Threat in Cyberspace',
   shortTitle: 'Agents Under Threat',
-  status: 'Proposed Workshop at AAAI-27',
+  status: 'AAAI-27 Workshop',
   date: 'February 22 or 23, 2027',
   location: 'Montréal, Canada',
   format: 'Full-day, in person',
@@ -60,49 +60,49 @@ export const cfpTopics = [
 ];
 
 export const importantDates = [
-  { label: 'Submission deadline', value: 'November 20, 2026', note: 'Anywhere on Earth', tentative: true },
-  { label: 'Acceptance notification', value: 'December 2, 2026', note: 'Author notification', tentative: true },
-  { label: 'Camera-ready', value: 'January 15, 2027', note: 'Final version due', tentative: true },
-  { label: 'Workshop', value: 'February 22 or 23, 2027', note: 'In person · Montréal', tentative: true },
+  { label: 'Submission deadline', value: 'November 20, 2026', note: 'Anywhere on Earth' },
+  { label: 'Acceptance notification', value: 'December 2, 2026', note: 'Author notification' },
+  { label: 'Camera-ready', value: 'January 15, 2027', note: 'Final version due' },
+  { label: 'Workshop', value: 'February 22 or 23, 2027', note: 'In person · Montréal' },
 ];
 
 export const schedule = [
-  { time: '08:30–08:45', title: 'Opening remarks', type: 'Welcome', tentative: true },
-  { time: '08:45–09:30', title: 'Keynote 1', type: 'Keynote', tentative: true },
-  { time: '09:30–10:30', title: 'Paper session 1', type: 'Research', tentative: true },
-  { time: '10:30–11:00', title: 'Coffee break', type: 'Break', tentative: true },
-  { time: '11:00–11:30', title: 'Invited talk 1', type: 'Invited talk', tentative: true },
-  { time: '11:30–12:10', title: 'Paper session 2', type: 'Research', tentative: true },
-  { time: '12:10–13:30', title: 'Lunch break', type: 'Break', tentative: true },
-  { time: '13:30–14:15', title: 'Keynote 2', type: 'Keynote', tentative: true },
-  { time: '14:15–14:45', title: 'Invited talk 2', type: 'Invited talk', tentative: true },
-  { time: '14:45–15:25', title: 'Paper session 3', type: 'Research', tentative: true },
-  { time: '15:25–16:00', title: 'Coffee break & poster session', type: 'Poster', tentative: true },
-  { time: '16:00–16:40', title: 'Panel discussion', type: 'Panel', tentative: true },
-  { time: '16:40–16:45', title: 'Closing remarks & award', type: 'Closing', tentative: true },
+  { time: '08:30–08:45', title: 'Opening remarks', type: 'Welcome' },
+  { time: '08:45–09:30', title: 'Keynote 1', type: 'Keynote' },
+  { time: '09:30–10:30', title: 'Paper session 1', type: 'Research' },
+  { time: '10:30–11:00', title: 'Coffee break', type: 'Break' },
+  { time: '11:00–11:30', title: 'Invited talk 1', type: 'Invited talk' },
+  { time: '11:30–12:10', title: 'Paper session 2', type: 'Research' },
+  { time: '12:10–13:30', title: 'Lunch break', type: 'Break' },
+  { time: '13:30–14:15', title: 'Keynote 2', type: 'Keynote' },
+  { time: '14:15–14:45', title: 'Invited talk 2', type: 'Invited talk' },
+  { time: '14:45–15:25', title: 'Paper session 3', type: 'Research' },
+  { time: '15:25–16:00', title: 'Coffee break & poster session', type: 'Poster' },
+  { time: '16:00–16:40', title: 'Panel discussion', type: 'Panel' },
+  { time: '16:40–16:45', title: 'Closing remarks & award', type: 'Closing' },
 ];
 
 export const speakers = [
-  { name: 'Wenyuan Xu', affiliation: 'Zhejiang University', role: 'Keynote 1', initials: 'WX', tentative: true },
-  { name: 'Bo Li', affiliation: 'University of Chicago', role: 'Keynote 2', initials: 'BL', tentative: true },
-  { name: 'Nicolas Papernot', affiliation: 'University of Toronto · Vector Institute', role: 'Invited talk 1', initials: 'NP', tentative: true },
-  { name: 'Niloofar Mireshghallah', affiliation: 'University of Washington', role: 'Invited talk 2', initials: 'NM', tentative: true },
+  { name: 'Wenyuan Xu', affiliation: 'Zhejiang University', role: 'Keynote 1', initials: 'WX' },
+  { name: 'Bo Li', affiliation: 'University of Chicago', role: 'Keynote 2', initials: 'BL' },
+  { name: 'Nicolas Papernot', affiliation: 'University of Toronto · Vector Institute', role: 'Invited talk 1', initials: 'NP' },
+  { name: 'Niloofar Mireshghallah', affiliation: 'University of Washington', role: 'Invited talk 2', initials: 'NM' },
 ];
 
 export const organizers = [
-  { name: 'Xinfeng Li', affiliation: 'The Hong Kong Polytechnic University', role: 'General Chair · Main Contact', image: '/people/xinfeng-li.png', imageAvailable: true, tentative: true },
-  { name: 'Aditi Raghunathan', affiliation: 'Carnegie Mellon University', role: 'Program Chair', image: '/people/rag.jpg', imageAvailable: false, tentative: true },
-  { name: 'Xinyue Shen', affiliation: 'University of Waterloo', role: 'Local Arrangements · Publications', image: '/people/shen.jpg', imageAvailable: false, tentative: true },
-  { name: 'Wenbo Pan', affiliation: 'City University of Hong Kong', role: 'Publicity', image: '/people/pan.jpg', imageAvailable: false, tentative: true },
+  { name: 'Xinfeng Li', affiliation: 'The Hong Kong Polytechnic University', role: 'General Chair · Main Contact', image: '/people/xinfeng-li.png', imageAvailable: true },
+  { name: 'Aditi Raghunathan', affiliation: 'Carnegie Mellon University', role: 'Program Chair', image: '/people/rag.jpg', imageAvailable: false },
+  { name: 'Xinyue Shen', affiliation: 'University of Waterloo', role: 'Local Arrangements · Publications', image: '/people/shen.jpg', imageAvailable: false },
+  { name: 'Wenbo Pan', affiliation: 'City University of Hong Kong', role: 'Publicity', image: '/people/pan.jpg', imageAvailable: false },
 ];
 
 export const advisers = [
-  { name: 'Florian Tramèr', affiliation: 'ETH Zürich', role: 'Advisory Board', tentative: true },
-  { name: 'Neil Gong', affiliation: 'Duke University', role: 'Advisory Board', tentative: true },
-  { name: 'Virginia Smith', affiliation: 'Carnegie Mellon University', role: 'Advisory Board', tentative: true },
-  { name: 'Tongliang Liu', affiliation: 'The University of Sydney', role: 'Advisory Board', tentative: true },
-  { name: 'Z. Jane Wang', affiliation: 'The University of British Columbia', role: 'Advisory Board', tentative: true },
-  { name: 'Junhao Dong', affiliation: 'Nanyang Technological University', role: 'Advisory Board', tentative: true },
+  { name: 'Florian Tramèr', affiliation: 'ETH Zürich', role: 'Advisory Board' },
+  { name: 'Neil Gong', affiliation: 'Duke University', role: 'Advisory Board' },
+  { name: 'Virginia Smith', affiliation: 'Carnegie Mellon University', role: 'Advisory Board' },
+  { name: 'Tongliang Liu', affiliation: 'The University of Sydney', role: 'Advisory Board' },
+  { name: 'Z. Jane Wang', affiliation: 'The University of British Columbia', role: 'Advisory Board' },
+  { name: 'Junhao Dong', affiliation: 'Nanyang Technological University', role: 'Advisory Board' },
 ];
 
 export const submissionPolicy = {
@@ -111,5 +111,5 @@ export const submissionPolicy = {
   review: 'Single-blind, with at least two reviews and a third review for borderline submissions.',
   publication: 'Non-archival. Authors retain the ability to submit expanded work elsewhere.',
   disclosure: 'Responsible disclosure is expected for work involving real systems or vulnerabilities.',
-  destination: 'Submission instructions will be announced after workshop confirmation.',
+  destination: 'Submission instructions will be announced soon.',
 };

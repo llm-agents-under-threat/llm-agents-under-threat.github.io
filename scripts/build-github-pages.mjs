@@ -28,7 +28,7 @@ const peopleMarkup = (records) => records.map((person) => `
     <div class="person-portrait">${portraitMarkup(person)}</div>
     <h3>${escapeHtml(person.name)}</h3>
     <p>${escapeHtml(person.affiliation)}</p>
-    <small>${escapeHtml(person.role)} · Tentative</small>
+    <small>${escapeHtml(person.role)}</small>
   </article>`).join('');
 
 const scheduleRows = schedule.map((item, index) => ({
@@ -38,7 +38,7 @@ const scheduleRows = schedule.map((item, index) => ({
 
 const scheduleMarkup = (session) => scheduleRows
   .filter((item) => item.session === session)
-  .map((item) => `<tr><th scope="row"><time>${escapeHtml(item.time)}</time></th><td>${escapeHtml(item.title)} <small>(${escapeHtml(item.type)} · tentative)</small></td></tr>`)
+  .map((item) => `<tr><th scope="row"><time>${escapeHtml(item.time)}</time></th><td>${escapeHtml(item.title)} <small>(${escapeHtml(item.type)})</small></td></tr>`)
   .join('');
 
 const html = `<!doctype html>
@@ -47,7 +47,7 @@ const html = `<!doctype html>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>${escapeHtml(workshop.title)} · ${escapeHtml(workshop.status)}</title>
-  <meta name="description" content="Call for papers for the proposed AAAI-27 workshop on adversarial threats and defenses for LLM agents.">
+  <meta name="description" content="Call for papers for the AAAI-27 workshop on adversarial threats and defenses for LLM agents.">
   <link rel="icon" href="./favicon.svg">
   <link rel="stylesheet" href="./styles.css">
   <script src="./menu.js" defer></script>
@@ -73,7 +73,7 @@ const html = `<!doctype html>
       <img class="hero-image" src="./hero-montreal.jpg" alt="Panoramic view of Montréal and the Saint Lawrence River">
       <div class="hero-overlay" aria-hidden="true"></div>
       <div class="hero-content">
-        <p class="proposal-status">${escapeHtml(workshop.status)}</p>
+        <p class="workshop-status">${escapeHtml(workshop.status)}</p>
         <h1 id="hero-title">LLM Agents Under Threat<br>in Cyberspace</h1>
         <p>AAAI-27 · ${escapeHtml(workshop.date)}</p>
         <p>${escapeHtml(workshop.location)} · ${escapeHtml(workshop.format)}</p>
@@ -85,14 +85,14 @@ const html = `<!doctype html>
     <div class="reading-column">
       <section class="content-section news-section" id="news" aria-labelledby="news-title">
         <h2 id="news-title">News</h2>
-        <ul class="news-list"><li><strong>[Proposal status]</strong> The workshop proposal is under review for AAAI-27. Dates, program, speakers, committee roles, and policies are tentative.</li></ul>
+        <ul class="news-list"><li><strong>[October 2026]</strong> LLM Agents Under Threat in Cyberspace has been accepted for AAAI-27.</li></ul>
       </section>
 
       <section class="content-section" id="about" aria-labelledby="about-title">
         <h2 id="about-title">About</h2>
         <p>${escapeHtml(workshop.summary)}</p>
         <p>LLM agents increasingly observe, remember, plan, coordinate, and act through external tools. These capabilities create attack surfaces across input channels, tool use, memory, identity, and multi-agent communication.</p>
-        <p>This proposed workshop brings together researchers and practitioners working on realistic attacks, evaluations, secure agent architectures, and responsible defenses for agents operating in adversarial environments.</p>
+        <p>This workshop brings together researchers and practitioners working on realistic attacks, evaluations, secure agent architectures, and responsible defenses for agents operating in adversarial environments.</p>
       </section>
 
       <section class="content-section" id="cfp" aria-labelledby="cfp-title">
@@ -103,8 +103,7 @@ const html = `<!doctype html>
 
       <section class="content-section" id="dates" aria-labelledby="dates-title">
         <h2 id="dates-title">Important Dates</h2>
-        <p class="section-note">All dates are tentative and subject to change.</p>
-        <ul class="date-list">${importantDates.map((date) => `<li><strong>${escapeHtml(date.label)}:</strong><span>${escapeHtml(date.value)}</span><small>${escapeHtml(date.note)} · Tentative</small></li>`).join('')}</ul>
+        <ul class="date-list">${importantDates.map((date) => `<li><strong>${escapeHtml(date.label)}:</strong><span>${escapeHtml(date.value)}</span><small>${escapeHtml(date.note)}</small></li>`).join('')}</ul>
       </section>
 
       <section class="content-section" id="submissions" aria-labelledby="submissions-title">
@@ -120,8 +119,8 @@ const html = `<!doctype html>
       </section>
 
       <section class="content-section" id="schedule" aria-labelledby="schedule-title">
-        <h2 id="schedule-title">Tentative Schedule</h2>
-        <p class="section-note">All times are local. Timing and session assignments may change after workshop confirmation.</p>
+        <h2 id="schedule-title">Schedule</h2>
+        <p class="section-note">All times are local.</p>
         <div class="schedule-table-wrapper">
           <table class="schedule-table">
             <thead class="sr-only"><tr><th scope="col">Time</th><th scope="col">Activity</th></tr></thead>
@@ -135,25 +134,22 @@ const html = `<!doctype html>
 
       <section class="content-section people-section" id="speakers" aria-labelledby="speakers-title">
         <h2 id="speakers-title">Invited Speakers</h2>
-        <p class="section-note">Invitations and roles are tentative pending workshop confirmation.</p>
         <div class="people-grid">${peopleMarkup(speakers)}</div>
       </section>
 
       <section class="content-section people-section" id="organizers" aria-labelledby="organizers-title">
         <h2 id="organizers-title">Workshop Organizers</h2>
-        <p class="section-note">Committee roles are tentative and drawn from the submitted proposal.</p>
         <div class="people-grid">${peopleMarkup(organizers)}</div>
       </section>
 
       <section class="content-section" id="advisers" aria-labelledby="advisers-title">
         <h2 id="advisers-title">Advisory Board</h2>
-        <p class="section-note">Proposed committee · tentative.</p>
         <div class="adviser-grid">${advisers.map((person) => `<article><h3>${escapeHtml(person.name)}</h3><p>${escapeHtml(person.affiliation)}</p></article>`).join('')}</div>
       </section>
 
       <section class="content-section contact-section" id="contact" aria-labelledby="contact-title">
         <h2 id="contact-title">Contact</h2>
-        <p>Questions about scope, fit, or the proposal can be sent to <a href="mailto:${escapeHtml(workshop.contact)}">${escapeHtml(workshop.contact)}</a>.</p>
+        <p>Questions about scope or fit can be sent to <a href="mailto:${escapeHtml(workshop.contact)}">${escapeHtml(workshop.contact)}</a>.</p>
       </section>
     </div>
   </main>

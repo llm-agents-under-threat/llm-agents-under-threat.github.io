@@ -32,7 +32,9 @@ test('GitHub Pages generator emits a complete standalone workshop site', async (
   const menuScript = await readFile(join(outputDirectory, 'menu.js'), 'utf8');
 
   assert.match(html, /LLM Agents Under Threat in Cyberspace/);
-  assert.match(html, /Proposed Workshop at AAAI-27/);
+  assert.match(html, /AAAI-27 Workshop/);
+  assert.match(html, /accepted for AAAI-27/);
+  assert.doesNotMatch(html, /tentative|proposed workshop|under review|pending workshop confirmation|after workshop confirmation|subject to change/i);
   assert.match(html, /<table class="schedule-table">/);
   assert.match(html, /Niloofar Mireshghallah/);
   assert.match(html, /src="\.\/hero-montreal\.jpg"/);

@@ -14,7 +14,6 @@ export function renderDates(records) {
   <span class="eyebrow">${escapeHtml(record.label)}</span>
   <strong>${escapeHtml(record.value)}</strong>
   <span>${escapeHtml(record.note)}</span>
-  ${record.tentative ? '<em>Tentative</em>' : ''}
 </article>`,
     )
     .join('');
@@ -27,7 +26,6 @@ export function renderSchedule(records) {
   <time>${escapeHtml(record.time)}</time>
   <span>${escapeHtml(record.title)}</span>
   <small>${escapeHtml(record.type)}</small>
-  ${record.tentative ? '<em>Tentative</em>' : ''}
 </li>`,
     )
     .join('');
@@ -40,7 +38,6 @@ export function renderPeople(records, kind) {
   <h3>${escapeHtml(record.name)}</h3>
   <p>${escapeHtml(record.affiliation)}</p>
   <span>${escapeHtml(record.role)}</span>
-  ${record.tentative ? '<em>Tentative</em>' : ''}
 </article>`,
     )
     .join('');

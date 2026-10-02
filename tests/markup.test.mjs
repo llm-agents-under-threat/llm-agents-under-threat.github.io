@@ -10,15 +10,16 @@ const renderedSources = `${page}\n${data}`;
 
 test('document shell publishes accurate metadata and an accessible entry path', () => {
   assert.match(layout, /LLM Agents Under Threat in Cyberspace/);
-  assert.match(layout, /Proposed Workshop at AAAI-27/);
+  assert.match(layout, /AAAI-27 Workshop/);
   assert.match(layout, /icon:\s*['"]\/favicon\.svg['"]/);
   assert.match(page, /href="#main-content"/);
   assert.match(page, /aria-label="Primary navigation"/);
   assert.match(page, /aria-expanded=/);
 });
 
-test('first viewport states proposal status, date, place, and local hero asset', () => {
-  assert.match(renderedSources, /Proposed Workshop at AAAI-27/);
+test('first viewport states accepted workshop status, date, place, and local hero asset', () => {
+  assert.match(renderedSources, /AAAI-27 Workshop/);
+  assert.match(page, /accepted for AAAI-27/);
   assert.match(renderedSources, /February 22 or 23, 2027/);
   assert.match(renderedSources, /Montréal, Canada/);
   assert.match(page, /\/hero-montreal\.jpg/);
@@ -75,12 +76,16 @@ test('complete page preserves safe public-contact and asset boundaries', () => {
   assert.doesNotMatch(renderedSources, /\b(?:openreview|hotcrp)\b|https?:\/\/[^'"\s]*submit|phone|postal address/i);
 });
 
-test('complete page renders every tentative date and schedule record', () => {
+test('complete page renders every accepted-workshop date and schedule record', () => {
   assert.match(page, /importantDates\.map/);
   assert.match(page, /schedule\.map/);
   assert.match(page, /speakers\.map/);
   assert.match(page, /organizers\.map/);
   assert.match(page, /advisers\.map/);
+});
+
+test('public source contains no proposal-stage language', () => {
+  assert.doesNotMatch(`${layout}\n${renderedSources}`, /tentative|proposed workshop|under review|pending workshop confirmation|after workshop confirmation|subject to change/i);
 });
 
 test('schedule uses a simple semantic table with morning and afternoon groups', () => {

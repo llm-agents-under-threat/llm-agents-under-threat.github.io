@@ -18,9 +18,9 @@ import {
   renderSchedule,
 } from '../app/workshop-render.mjs';
 
-test('proposal-derived content has the exact public workshop contract', () => {
+test('accepted workshop content has the exact public workshop contract', () => {
   assert.equal(workshop.title, 'LLM Agents Under Threat in Cyberspace');
-  assert.equal(workshop.status, 'Proposed Workshop at AAAI-27');
+  assert.equal(workshop.status, 'AAAI-27 Workshop');
   assert.equal(workshop.location, 'Montréal, Canada');
   assert.equal(workshop.date, 'February 22 or 23, 2027');
   assert.equal(workshop.contact, 'xinfeng.li@polyu.edu.hk');
@@ -44,34 +44,34 @@ test('proposal-derived content has the exact public workshop contract', () => {
   });
   assert.doesNotMatch(publicContent, /phone|postal|room\s+\d|street address/i);
   assert.doesNotMatch(publicContent, /openreview|hotcrp|register now|submit now/i);
+  assert.doesNotMatch(publicContent, /tentative|proposed|under review|pending confirmation|after workshop confirmation|subject to change/i);
 });
 
-test('all event-specific records are visibly tentative', () => {
-  assert.ok(importantDates.every((record) => record.tentative === true));
-  assert.ok(schedule.every((record) => record.tentative === true));
-  assert.ok(speakers.every((record) => record.tentative === true));
-  assert.ok(organizers.every((record) => record.tentative === true));
-  assert.ok(advisers.every((record) => record.tentative === true));
+test('event-specific records no longer carry proposal-stage flags', () => {
+  for (const records of [importantDates, schedule, speakers, organizers, advisers]) {
+    assert.ok(records.every((record) => !('tentative' in record)));
+  }
 });
 
 test('render helpers escape content and preserve semantic labels', () => {
   assert.equal(escapeHtml('<script>"x" & y</script>'), '&lt;script&gt;&quot;x&quot; &amp; y&lt;/script&gt;');
 
   const datesMarkup = renderDates([
-    { label: '<Deadline>', value: 'Nov 20', note: 'Anywhere on Earth', tentative: true },
+    { label: '<Deadline>', value: 'Nov 20', note: 'Anywhere on Earth' },
   ]);
   assert.match(datesMarkup, /&lt;Deadline&gt;/);
-  assert.match(datesMarkup, /Tentative/);
+  assert.doesNotMatch(datesMarkup, /Tentative/i);
 
   const scheduleMarkup = renderSchedule([
-    { time: '08:30–08:45', title: 'Opening', type: 'Workshop', tentative: true },
+    { time: '08:30–08:45', title: 'Opening', type: 'Workshop' },
   ]);
   assert.match(scheduleMarkup, /<time[^>]*>08:30–08:45<\/time>/);
-  assert.match(scheduleMarkup, /Tentative/);
+  assert.doesNotMatch(scheduleMarkup, /Tentative/i);
 
   const peopleMarkup = renderPeople([
-    { name: 'A. Researcher', affiliation: 'Example University', role: 'Program Chair', tentative: true },
+    { name: 'A. Researcher', affiliation: 'Example University', role: 'Program Chair' },
   ], 'organizer');
   assert.match(peopleMarkup, /data-kind="organizer"/);
   assert.match(peopleMarkup, /Program Chair/);
+  assert.doesNotMatch(peopleMarkup, /Tentative/i);
 });

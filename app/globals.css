@@ -133,7 +133,7 @@ section[id] { scroll-margin-top: calc(var(--nav-height) + 24px); }
   text-align: center;
   text-shadow: 0 2px 10px rgba(0, 0, 0, .55);
 }
-.proposal-status {
+.workshop-status {
   margin: 0 0 1rem;
   padding: .28rem .7rem;
   border: 1px solid rgba(255, 255, 255, .72);
@@ -151,7 +151,7 @@ section[id] { scroll-margin-top: calc(var(--nav-height) + 24px); }
   line-height: 1.08;
   letter-spacing: -.035em;
 }
-.hero-content > p:not(.proposal-status) { margin: .12rem 0; font-size: clamp(1rem, 1.65vw, 1.35rem); }
+.hero-content > p:not(.workshop-status) { margin: .12rem 0; font-size: clamp(1rem, 1.65vw, 1.35rem); }
 .hero-contact { overflow-wrap: anywhere; }
 .hero-contact a { color: #fff; }
 .hero-credit {
@@ -264,7 +264,7 @@ section[id] { scroll-margin-top: calc(var(--nav-height) + 24px); }
   .hero { height: 500px; }
   .hero-content { padding-inline: 1rem; }
   .hero h1 { max-width: 12ch; font-size: clamp(2.25rem, 10.5vw, 3.2rem); line-height: 1.08; }
-  .hero-content > p:not(.proposal-status) { font-size: 1rem; }
+  .hero-content > p:not(.workshop-status) { font-size: 1rem; }
   .reading-column { width: calc(100% - 2rem); }
   .content-section { padding-top: 2.25rem; }
   .content-section h2 { font-size: 1.4rem; }
