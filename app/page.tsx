@@ -10,7 +10,6 @@ import {
   importantDates,
   organizers,
   schedule,
-  speakers,
   submissionPolicy,
   workshop,
 } from './workshop-data.mjs';
@@ -19,7 +18,6 @@ const primaryLinks = [
   { href: '#about', label: 'About' },
   { href: '#cfp', label: 'Call for Papers' },
   { href: '#schedule', label: 'Schedule' },
-  { href: '#speakers', label: 'Speakers' },
   { href: '#organizers', label: 'Organizers' },
 ];
 
@@ -185,11 +183,6 @@ export default function Home() {
                 </tbody>
               </table>
             </div>
-          </section>
-
-          <section className="content-section people-section" id="speakers" aria-labelledby="speakers-title">
-            <h2 id="speakers-title">Invited Speakers</h2>
-            <div className="people-grid">{speakers.map((person) => <PersonCard key={person.name} person={person} />)}</div>
           </section>
 
           <section className="content-section people-section" id="organizers" aria-labelledby="organizers-title">

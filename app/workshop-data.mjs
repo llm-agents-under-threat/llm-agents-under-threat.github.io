@@ -116,9 +116,9 @@ export const speakers = [
 
 export const organizers = [
   { name: 'Xinfeng Li', affiliation: 'The Hong Kong Polytechnic University', role: 'General Chair · Main Contact', image: '/people/xinfeng-li.png', imageAvailable: true },
-  { name: 'Aditi Raghunathan', affiliation: 'Carnegie Mellon University', role: 'Program Chair', image: '/people/rag.jpg', imageAvailable: false },
-  { name: 'Xinyue Shen', affiliation: 'University of Waterloo', role: 'Local Arrangements · Publications', image: '/people/shen.jpg', imageAvailable: false },
-  { name: 'Wenbo Pan', affiliation: 'City University of Hong Kong', role: 'Publicity', image: '/people/pan.jpg', imageAvailable: false },
+  { name: 'Aditi Raghunathan', affiliation: 'Carnegie Mellon University', role: 'Program Chair', image: '/people/aditi-raghunathan.jpg', imageAvailable: true },
+  { name: 'Xinyue Shen', affiliation: 'University of Waterloo', role: 'Local Arrangements · Publications', image: '/people/xinyue-shen.jpg', imageAvailable: true },
+  { name: 'Wenbo Pan', affiliation: 'City University of Hong Kong', role: 'Publicity', image: '/people/wenbo-pan.jpg', imageAvailable: true },
 ];
 
 export const advisers = [

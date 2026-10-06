@@ -7,7 +7,6 @@ import {
   importantDates,
   organizers,
   schedule,
-  speakers,
   submissionPolicy,
   workshop,
 } from '../app/workshop-data.mjs';
@@ -57,14 +56,14 @@ const html = `<!doctype html>
   <header class="site-header">
     <a class="site-name" href="#top">Agents Under Threat Workshop</a>
     <nav class="desktop-nav" aria-label="Primary navigation">
-      <a href="#about">About</a><a href="#cfp">Call for Papers</a><a href="#schedule">Schedule</a><a href="#speakers">Speakers</a><a href="#organizers">Organizers</a>
+      <a href="#about">About</a><a href="#cfp">Call for Papers</a><a href="#schedule">Schedule</a><a href="#organizers">Organizers</a>
     </nav>
     <div class="mobile-controls">
       <a href="#about">About</a>
       <button class="menu-button" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="mobile-navigation"><span data-menu-icon aria-hidden="true">☰</span></button>
     </div>
     <nav id="mobile-navigation" class="mobile-nav" aria-label="Mobile navigation" hidden>
-      <a href="#about">About</a><a href="#cfp">Call for Papers</a><a href="#schedule">Schedule</a><a href="#speakers">Speakers</a><a href="#organizers">Organizers</a><a href="mailto:${escapeHtml(workshop.contact)}">Contact</a>
+      <a href="#about">About</a><a href="#cfp">Call for Papers</a><a href="#schedule">Schedule</a><a href="#organizers">Organizers</a><a href="mailto:${escapeHtml(workshop.contact)}">Contact</a>
     </nav>
   </header>
 
@@ -134,11 +133,6 @@ const html = `<!doctype html>
         </div>
       </section>
 
-      <section class="content-section people-section" id="speakers" aria-labelledby="speakers-title">
-        <h2 id="speakers-title">Invited Speakers</h2>
-        <div class="people-grid">${peopleMarkup(speakers)}</div>
-      </section>
-
       <section class="content-section people-section" id="organizers" aria-labelledby="organizers-title">
         <h2 id="organizers-title">Workshop Organizers</h2>
         <div class="people-grid">${peopleMarkup(organizers)}</div>
@@ -204,6 +198,9 @@ await Promise.all([
   writeFile(resolve(outputDirectory, 'menu.js'), menuScript),
   copyFile(resolve(projectRoot, 'public/hero-montreal.jpg'), resolve(outputDirectory, 'hero-montreal.jpg')),
   copyFile(resolve(projectRoot, 'public/people/xinfeng-li.png'), resolve(outputDirectory, 'people/xinfeng-li.png')),
+  copyFile(resolve(projectRoot, 'public/people/aditi-raghunathan.jpg'), resolve(outputDirectory, 'people/aditi-raghunathan.jpg')),
+  copyFile(resolve(projectRoot, 'public/people/xinyue-shen.jpg'), resolve(outputDirectory, 'people/xinyue-shen.jpg')),
+  copyFile(resolve(projectRoot, 'public/people/wenbo-pan.jpg'), resolve(outputDirectory, 'people/wenbo-pan.jpg')),
   copyFile(resolve(projectRoot, 'public/favicon.svg'), resolve(outputDirectory, 'favicon.svg')),
   writeFile(resolve(outputDirectory, '.nojekyll'), ''),
 ]);

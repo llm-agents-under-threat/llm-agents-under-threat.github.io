@@ -45,10 +45,13 @@ test('GitHub Pages generator emits a complete standalone workshop site', async (
   assert.match(styles, /\.hero h1\s*{[^}]*white-space:\s*nowrap/s);
   assert.match(styles, /@media\s*\(max-width:\s*860px\)[\s\S]*\.hero h1\s*{[^}]*white-space:\s*normal/s);
   assert.match(html, /<table class="schedule-table">/);
-  assert.match(html, /Niloofar Mireshghallah/);
+  assert.doesNotMatch(html, /id="speakers"|href="#speakers"|Invited Speakers|Niloofar Mireshghallah/);
   assert.match(html, /src="\.\/hero-montreal\.jpg"/);
   assert.match(html, /src="\.\/people\/xinfeng-li\.png" alt="Portrait of Xinfeng Li"/);
-  assert.match(html, /Portrait placeholder for Aditi Raghunathan/);
+  assert.match(html, /src="\.\/people\/aditi-raghunathan\.jpg" alt="Portrait of Aditi Raghunathan"/);
+  assert.match(html, /src="\.\/people\/xinyue-shen\.jpg" alt="Portrait of Xinyue Shen"/);
+  assert.match(html, /src="\.\/people\/wenbo-pan\.jpg" alt="Portrait of Wenbo Pan"/);
+  assert.doesNotMatch(html, /Portrait placeholder for (?:Aditi Raghunathan|Xinyue Shen|Wenbo Pan)/);
   assert.match(html, /href="\.\/favicon\.svg"/);
   assert.doesNotMatch(html, /\/_next\/|chatgpt\.site/);
 
@@ -58,5 +61,8 @@ test('GitHub Pages generator emits a complete standalone workshop site', async (
 
   assert.ok((await stat(join(outputDirectory, 'hero-montreal.jpg'))).size > 100_000);
   assert.ok((await stat(join(outputDirectory, 'people', 'xinfeng-li.png'))).size > 10_000);
+  assert.ok((await stat(join(outputDirectory, 'people', 'aditi-raghunathan.jpg'))).size > 10_000);
+  assert.ok((await stat(join(outputDirectory, 'people', 'xinyue-shen.jpg'))).size > 10_000);
+  assert.ok((await stat(join(outputDirectory, 'people', 'wenbo-pan.jpg'))).size > 10_000);
   assert.ok((await stat(join(outputDirectory, 'favicon.svg'))).size > 0);
 });

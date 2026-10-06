@@ -30,6 +30,7 @@ test('accepted workshop content has the exact public workshop contract', () => {
   assert.equal(schedule.length, 13);
   assert.equal(speakers.length, 4);
   assert.equal(organizers.length, 4);
+  assert.ok(organizers.every((organizer) => organizer.imageAvailable && organizer.image));
   assert.equal(advisers.length, 6);
 
   const publicContent = JSON.stringify({

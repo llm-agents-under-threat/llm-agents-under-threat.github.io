@@ -28,7 +28,7 @@ test('first viewport states accepted workshop status, date, place, and local her
 });
 
 test('academic reading flow exposes the reference-led section order', () => {
-  const ids = ['news', 'about', 'cfp', 'dates', 'submissions', 'schedule', 'speakers', 'organizers', 'advisers', 'contact'];
+  const ids = ['news', 'about', 'cfp', 'dates', 'submissions', 'schedule', 'organizers', 'advisers', 'contact'];
   let previous = -1;
   for (const id of ids) {
     const position = page.indexOf(`id="${id}"`);
@@ -52,13 +52,15 @@ test('navigation remains keyboard accessible without a reveal dependency', () =>
   assert.doesNotMatch(renderedSources, /initRevealEffects|shouldAnimate/);
 });
 
-test('complete page exposes every public section and proposal-derived person', () => {
-  for (const id of ['dates', 'schedule', 'speakers', 'organizers', 'contact']) {
+test('complete page exposes public sections while invited speakers remain hidden', () => {
+  for (const id of ['dates', 'schedule', 'organizers', 'contact']) {
     assert.match(page, new RegExp(`id=["']${id}["']`));
   }
 
+  assert.doesNotMatch(page, /id=["']speakers["']/);
+  assert.doesNotMatch(page, /href=["']#speakers["']/);
+
   for (const name of [
-    'Wenyuan Xu', 'Bo Li', 'Nicolas Papernot', 'Niloofar Mireshghallah',
     'Xinfeng Li', 'Aditi Raghunathan', 'Xinyue Shen', 'Wenbo Pan',
     'Florian Tramèr', 'Neil Gong', 'Virginia Smith', 'Tongliang Liu',
     'Z. Jane Wang', 'Junhao Dong',
@@ -68,7 +70,7 @@ test('complete page exposes every public section and proposal-derived person', (
 });
 
 test('complete page preserves safe public-contact and asset boundaries', () => {
-  for (const asset of ['/people/xinfeng-li.png', '/people/rag.jpg', '/people/shen.jpg', '/people/pan.jpg']) {
+  for (const asset of ['/people/xinfeng-li.png', '/people/aditi-raghunathan.jpg', '/people/xinyue-shen.jpg', '/people/wenbo-pan.jpg']) {
     assert.match(renderedSources, new RegExp(asset.replace('.', '\\.')));
   }
   assert.equal((data.match(/llm-agents-under-threat@googlegroups\.com/g) ?? []).length, 1);
@@ -79,7 +81,7 @@ test('complete page preserves safe public-contact and asset boundaries', () => {
 test('complete page renders every accepted-workshop date and schedule record', () => {
   assert.match(page, /importantDates\.map/);
   assert.match(page, /schedule\.map/);
-  assert.match(page, /speakers\.map/);
+  assert.doesNotMatch(page, /speakers\.map/);
   assert.match(page, /organizers\.map/);
   assert.match(page, /advisers\.map/);
 });
