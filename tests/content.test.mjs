@@ -9,6 +9,7 @@ import {
   researchQuestions,
   schedule,
   speakers,
+  studentOrganizers,
   workshop,
 } from '../app/workshop-data.mjs';
 import {
@@ -26,12 +27,16 @@ test('accepted workshop content has the exact public workshop contract', () => {
   assert.equal(workshop.contact, 'llm-agents-under-threat@googlegroups.com');
   assert.equal(researchQuestions.length, 3);
   assert.equal(cfpTopics.length, 10);
-  assert.equal(importantDates.length, 4);
+  assert.equal(importantDates.length, 3);
   assert.equal(schedule.length, 13);
   assert.equal(speakers.length, 4);
   assert.equal(organizers.length, 4);
   assert.ok(organizers.every((organizer) => organizer.imageAvailable && organizer.image));
+  assert.equal(organizers.find(({ name }) => name === 'Xinfeng Li')?.role, 'General Chair');
+  assert.equal(studentOrganizers.length, 3);
+  assert.ok(studentOrganizers.every((organizer) => organizer.imageAvailable && organizer.image));
   assert.equal(advisers.length, 6);
+  assert.ok(advisers.every((adviser) => adviser.imageAvailable && adviser.image));
 
   const publicContent = JSON.stringify({
     workshop,
@@ -41,6 +46,7 @@ test('accepted workshop content has the exact public workshop contract', () => {
     schedule,
     speakers,
     organizers,
+    studentOrganizers,
     advisers,
   });
   assert.doesNotMatch(publicContent, /phone|postal|room\s+\d|street address/i);

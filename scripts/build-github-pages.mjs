@@ -8,6 +8,7 @@ import {
   organizers,
   schedule,
   submissionPolicy,
+  studentOrganizers,
   workshop,
 } from '../app/workshop-data.mjs';
 import { escapeHtml } from '../app/workshop-render.mjs';
@@ -138,9 +139,14 @@ const html = `<!doctype html>
         <div class="people-grid">${peopleMarkup(organizers)}</div>
       </section>
 
-      <section class="content-section" id="advisers" aria-labelledby="advisers-title">
+      <section class="content-section people-section" id="student-organizers" aria-labelledby="student-organizers-title">
+        <h2 id="student-organizers-title">Student Organizers</h2>
+        <div class="people-grid people-grid-three">${peopleMarkup(studentOrganizers)}</div>
+      </section>
+
+      <section class="content-section people-section" id="advisers" aria-labelledby="advisers-title">
         <h2 id="advisers-title">Advisory Board</h2>
-        <div class="adviser-grid">${advisers.map((person) => `<article><h3>${escapeHtml(person.name)}</h3><p>${escapeHtml(person.affiliation)}</p></article>`).join('')}</div>
+        <div class="people-grid people-grid-three">${peopleMarkup(advisers)}</div>
       </section>
 
       <section class="content-section contact-section" id="contact" aria-labelledby="contact-title">
@@ -201,6 +207,15 @@ await Promise.all([
   copyFile(resolve(projectRoot, 'public/people/aditi-raghunathan.jpg'), resolve(outputDirectory, 'people/aditi-raghunathan.jpg')),
   copyFile(resolve(projectRoot, 'public/people/xinyue-shen.jpg'), resolve(outputDirectory, 'people/xinyue-shen.jpg')),
   copyFile(resolve(projectRoot, 'public/people/wenbo-pan.jpg'), resolve(outputDirectory, 'people/wenbo-pan.jpg')),
+  copyFile(resolve(projectRoot, 'public/people/xin-gao.jpg'), resolve(outputDirectory, 'people/xin-gao.jpg')),
+  copyFile(resolve(projectRoot, 'public/people/can-shen.jpg'), resolve(outputDirectory, 'people/can-shen.jpg')),
+  copyFile(resolve(projectRoot, 'public/people/xinzuo-wang.jpg'), resolve(outputDirectory, 'people/xinzuo-wang.jpg')),
+  copyFile(resolve(projectRoot, 'public/people/florian-tramer.jpg'), resolve(outputDirectory, 'people/florian-tramer.jpg')),
+  copyFile(resolve(projectRoot, 'public/people/neil-gong.jpg'), resolve(outputDirectory, 'people/neil-gong.jpg')),
+  copyFile(resolve(projectRoot, 'public/people/virginia-smith.jpg'), resolve(outputDirectory, 'people/virginia-smith.jpg')),
+  copyFile(resolve(projectRoot, 'public/people/tongliang-liu.jpg'), resolve(outputDirectory, 'people/tongliang-liu.jpg')),
+  copyFile(resolve(projectRoot, 'public/people/z-jane-wang.jpg'), resolve(outputDirectory, 'people/z-jane-wang.jpg')),
+  copyFile(resolve(projectRoot, 'public/people/junhao-dong.jpg'), resolve(outputDirectory, 'people/junhao-dong.jpg')),
   copyFile(resolve(projectRoot, 'public/favicon.svg'), resolve(outputDirectory, 'favicon.svg')),
   writeFile(resolve(outputDirectory, '.nojekyll'), ''),
 ]);

@@ -193,6 +193,7 @@ section[id] { scroll-margin-top: calc(var(--nav-height) + 24px); }
 .date-list { margin: 0; list-style: disc; }
 .date-list li { display: grid; grid-template-columns: minmax(180px, .8fr) minmax(180px, 1fr); column-gap: 1rem; }
 .date-list li::before { display: none; }
+.date-list li > strong { margin-right: .35rem; }
 .date-list small { grid-column: 2; color: var(--muted); }
 
 .schedule-table-wrapper { width: 100%; overflow-x: auto; }
@@ -209,6 +210,7 @@ section[id] { scroll-margin-top: calc(var(--nav-height) + 24px); }
   gap: 2.1rem 1.5rem;
   padding-top: .6rem;
 }
+.people-grid-three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 .person-card { min-width: 0; text-align: center; }
 .person-portrait {
   position: relative;
@@ -230,10 +232,6 @@ section[id] { scroll-margin-top: calc(var(--nav-height) + 24px); }
 .person-card p { margin: 0 0 .3rem; color: #666; font-size: .86rem; line-height: 1.45; }
 .person-card small { display: block; color: #666; font-size: .72rem; line-height: 1.45; }
 
-.adviser-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 2rem; }
-.adviser-grid article { padding: .9rem 0; border-bottom: 1px solid var(--rule); }
-.adviser-grid h3 { margin: 0 0 .2rem; font-size: 1rem; }
-.adviser-grid p { margin: 0; color: var(--muted); font-size: .9rem; }
 .contact-section a { overflow-wrap: anywhere; }
 
 .site-footer {
@@ -281,7 +279,6 @@ section[id] { scroll-margin-top: calc(var(--nav-height) + 24px); }
   .schedule-table small { display: block; }
   .people-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.75rem 1rem; }
   .person-portrait { width: min(100%, 138px); }
-  .adviser-grid { grid-template-columns: 1fr; }
 }
 
 @media (prefers-reduced-motion: reduce) {

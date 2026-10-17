@@ -11,6 +11,7 @@ import {
   organizers,
   schedule,
   submissionPolicy,
+  studentOrganizers,
   workshop,
 } from './workshop-data.mjs';
 
@@ -190,11 +191,14 @@ export default function Home() {
             <div className="people-grid">{organizers.map((person) => <PersonCard key={person.name} person={person} />)}</div>
           </section>
 
-          <section className="content-section" id="advisers" aria-labelledby="advisers-title">
+          <section className="content-section people-section" id="student-organizers" aria-labelledby="student-organizers-title">
+            <h2 id="student-organizers-title">Student Organizers</h2>
+            <div className="people-grid people-grid-three">{studentOrganizers.map((person) => <PersonCard key={person.name} person={person} />)}</div>
+          </section>
+
+          <section className="content-section people-section" id="advisers" aria-labelledby="advisers-title">
             <h2 id="advisers-title">Advisory Board</h2>
-            <div className="adviser-grid">
-              {advisers.map((person) => <article key={person.name}><h3>{person.name}</h3><p>{person.affiliation}</p></article>)}
-            </div>
+            <div className="people-grid people-grid-three">{advisers.map((person) => <PersonCard key={person.name} person={person} />)}</div>
           </section>
 
           <section className="content-section contact-section" id="contact" aria-labelledby="contact-title">

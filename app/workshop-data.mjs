@@ -87,7 +87,6 @@ export const cfpTopics = [
 export const importantDates = [
   { label: 'Submission deadline', value: 'November 20, 2026', note: 'Anywhere on Earth' },
   { label: 'Acceptance notification', value: 'December 2, 2026', note: 'Author notification' },
-  { label: 'Camera-ready', value: 'January 15, 2027', note: 'Final version due' },
   { label: 'Workshop', value: 'February 22 or 23, 2027', note: 'In person · Montréal' },
 ];
 
@@ -115,19 +114,25 @@ export const speakers = [
 ];
 
 export const organizers = [
-  { name: 'Xinfeng Li', affiliation: 'The Hong Kong Polytechnic University', role: 'General Chair · Main Contact', image: '/people/xinfeng-li.png', imageAvailable: true },
+  { name: 'Xinfeng Li', affiliation: 'The Hong Kong Polytechnic University', role: 'General Chair', image: '/people/xinfeng-li.png', imageAvailable: true },
   { name: 'Aditi Raghunathan', affiliation: 'Carnegie Mellon University', role: 'Program Chair', image: '/people/aditi-raghunathan.jpg', imageAvailable: true },
   { name: 'Xinyue Shen', affiliation: 'University of Waterloo', role: 'Local Arrangements · Publications', image: '/people/xinyue-shen.jpg', imageAvailable: true },
   { name: 'Wenbo Pan', affiliation: 'City University of Hong Kong', role: 'Publicity', image: '/people/wenbo-pan.jpg', imageAvailable: true },
 ];
 
+export const studentOrganizers = [
+  { name: 'Xin Gao', affiliation: 'Tokyo University of Science', role: 'Student Organizer', image: '/people/xin-gao.jpg', imageAvailable: true },
+  { name: 'Can Shen', affiliation: 'The Hong Kong Polytechnic University', role: 'Student Organizer', image: '/people/can-shen.jpg', imageAvailable: true },
+  { name: 'Xinzuo Wang', affiliation: 'University of Electronic Science and Technology of China', role: 'Student Organizer', image: '/people/xinzuo-wang.jpg', imageAvailable: true },
+];
+
 export const advisers = [
-  { name: 'Florian Tramèr', affiliation: 'ETH Zürich', role: 'Advisory Board' },
-  { name: 'Neil Gong', affiliation: 'Duke University', role: 'Advisory Board' },
-  { name: 'Virginia Smith', affiliation: 'Carnegie Mellon University', role: 'Advisory Board' },
-  { name: 'Tongliang Liu', affiliation: 'The University of Sydney', role: 'Advisory Board' },
-  { name: 'Z. Jane Wang', affiliation: 'The University of British Columbia', role: 'Advisory Board' },
-  { name: 'Junhao Dong', affiliation: 'Nanyang Technological University', role: 'Advisory Board' },
+  { name: 'Florian Tramèr', affiliation: 'ETH Zürich', role: 'Advisory Board', image: '/people/florian-tramer.jpg', imageAvailable: true },
+  { name: 'Neil Gong', affiliation: 'Duke University', role: 'Advisory Board', image: '/people/neil-gong.jpg', imageAvailable: true },
+  { name: 'Virginia Smith', affiliation: 'Carnegie Mellon University', role: 'Advisory Board', image: '/people/virginia-smith.jpg', imageAvailable: true },
+  { name: 'Tongliang Liu', affiliation: 'The University of Sydney', role: 'Advisory Board', image: '/people/tongliang-liu.jpg', imageAvailable: true },
+  { name: 'Z. Jane Wang', affiliation: 'The University of British Columbia', role: 'Advisory Board', image: '/people/z-jane-wang.jpg', imageAvailable: true },
+  { name: 'Junhao Dong', affiliation: 'Nanyang Technological University', role: 'Advisory Board', image: '/people/junhao-dong.jpg', imageAvailable: true },
 ];
 
 export const submissionPolicy = {

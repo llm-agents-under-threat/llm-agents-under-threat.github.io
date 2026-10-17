@@ -28,7 +28,7 @@ test('first viewport states accepted workshop status, date, place, and local her
 });
 
 test('academic reading flow exposes the reference-led section order', () => {
-  const ids = ['news', 'about', 'cfp', 'dates', 'submissions', 'schedule', 'organizers', 'advisers', 'contact'];
+  const ids = ['news', 'about', 'cfp', 'dates', 'submissions', 'schedule', 'organizers', 'student-organizers', 'advisers', 'contact'];
   let previous = -1;
   for (const id of ids) {
     const position = page.indexOf(`id="${id}"`);
@@ -62,6 +62,7 @@ test('complete page exposes public sections while invited speakers remain hidden
 
   for (const name of [
     'Xinfeng Li', 'Aditi Raghunathan', 'Xinyue Shen', 'Wenbo Pan',
+    'Xin Gao', 'Can Shen', 'Xinzuo Wang',
     'Florian Tramèr', 'Neil Gong', 'Virginia Smith', 'Tongliang Liu',
     'Z. Jane Wang', 'Junhao Dong',
   ]) {
@@ -70,7 +71,12 @@ test('complete page exposes public sections while invited speakers remain hidden
 });
 
 test('complete page preserves safe public-contact and asset boundaries', () => {
-  for (const asset of ['/people/xinfeng-li.png', '/people/aditi-raghunathan.jpg', '/people/xinyue-shen.jpg', '/people/wenbo-pan.jpg']) {
+  for (const asset of [
+    '/people/xinfeng-li.png', '/people/aditi-raghunathan.jpg', '/people/xinyue-shen.jpg', '/people/wenbo-pan.jpg',
+    '/people/xin-gao.jpg', '/people/can-shen.jpg', '/people/xinzuo-wang.jpg',
+    '/people/florian-tramer.jpg', '/people/neil-gong.jpg', '/people/virginia-smith.jpg',
+    '/people/tongliang-liu.jpg', '/people/z-jane-wang.jpg', '/people/junhao-dong.jpg',
+  ]) {
     assert.match(renderedSources, new RegExp(asset.replace('.', '\\.')));
   }
   assert.equal((data.match(/llm-agents-under-threat@googlegroups\.com/g) ?? []).length, 1);
@@ -83,7 +89,9 @@ test('complete page renders every accepted-workshop date and schedule record', (
   assert.match(page, /schedule\.map/);
   assert.doesNotMatch(page, /speakers\.map/);
   assert.match(page, /organizers\.map/);
+  assert.match(page, /studentOrganizers\.map/);
   assert.match(page, /advisers\.map/);
+  assert.match(page, /advisers\.map\(\(person\) => <PersonCard/);
 });
 
 test('public source contains no proposal-stage language', () => {

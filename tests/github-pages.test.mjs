@@ -51,6 +51,12 @@ test('GitHub Pages generator emits a complete standalone workshop site', async (
   assert.match(html, /src="\.\/people\/aditi-raghunathan\.jpg" alt="Portrait of Aditi Raghunathan"/);
   assert.match(html, /src="\.\/people\/xinyue-shen\.jpg" alt="Portrait of Xinyue Shen"/);
   assert.match(html, /src="\.\/people\/wenbo-pan\.jpg" alt="Portrait of Wenbo Pan"/);
+  assert.match(html, /id="student-organizers"/);
+  assert.match(html, /src="\.\/people\/xin-gao\.jpg" alt="Portrait of Xin Gao"/);
+  assert.match(html, /src="\.\/people\/can-shen\.jpg" alt="Portrait of Can Shen"/);
+  assert.match(html, /src="\.\/people\/xinzuo-wang\.jpg" alt="Portrait of Xinzuo Wang"/);
+  assert.match(html, /src="\.\/people\/florian-tramer\.jpg" alt="Portrait of Florian Tramèr"/);
+  assert.match(html, /src="\.\/people\/junhao-dong\.jpg" alt="Portrait of Junhao Dong"/);
   assert.doesNotMatch(html, /Portrait placeholder for (?:Aditi Raghunathan|Xinyue Shen|Wenbo Pan)/);
   assert.match(html, /href="\.\/favicon\.svg"/);
   assert.doesNotMatch(html, /\/_next\/|chatgpt\.site/);
@@ -64,5 +70,10 @@ test('GitHub Pages generator emits a complete standalone workshop site', async (
   assert.ok((await stat(join(outputDirectory, 'people', 'aditi-raghunathan.jpg'))).size > 10_000);
   assert.ok((await stat(join(outputDirectory, 'people', 'xinyue-shen.jpg'))).size > 10_000);
   assert.ok((await stat(join(outputDirectory, 'people', 'wenbo-pan.jpg'))).size > 10_000);
+  assert.ok((await stat(join(outputDirectory, 'people', 'xin-gao.jpg'))).size > 10_000);
+  assert.ok((await stat(join(outputDirectory, 'people', 'can-shen.jpg'))).size > 10_000);
+  assert.ok((await stat(join(outputDirectory, 'people', 'xinzuo-wang.jpg'))).size > 10_000);
+  assert.ok((await stat(join(outputDirectory, 'people', 'florian-tramer.jpg'))).size > 10_000);
+  assert.ok((await stat(join(outputDirectory, 'people', 'junhao-dong.jpg'))).size > 10_000);
   assert.ok((await stat(join(outputDirectory, 'favicon.svg'))).size > 0);
 });
