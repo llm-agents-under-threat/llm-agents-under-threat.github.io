@@ -1,25 +1,24 @@
-# Design QA
+# Design QA — proceedings-cover redesign
 
-## References
+## Evidence
 
-- Title-wrap reference: `/var/folders/b0/zf0l3qzj3y57k95gqxcbt5fh0000gn/T/TemporaryItems/NSIRD_screencaptureui_rWNcOI/截屏2026-10-02 15.25.33.png`
-- Call-for-papers density reference: `/var/folders/b0/zf0l3qzj3y57k95gqxcbt5fh0000gn/T/TemporaryItems/NSIRD_screencaptureui_KJsbIj/截屏2026-10-02 15.26.36.png`
-- Implementation: `http://localhost:4173/` from the generated GitHub Pages build, inspected in the Codex in-app browser.
+- Selected reference: `/var/folders/b0/zf0l3qzj3y57k95gqxcbt5fh0000gn/T/TemporaryItems/NSIRD_screencaptureui_YdaSgf/截屏2026-10-19 00.29.05.png`
+- Desktop capture: `/Users/fara./Documents/Codex/AAAI27-site-preview/implementation-desktop.png`
+- Mobile capture: `/Users/fara./Documents/Codex/AAAI27-site-preview/implementation-mobile.png`
+- Side-by-side comparison: `/Users/fara./Documents/Codex/AAAI27-site-preview/design-qa-comparison.png`
+- Desktop viewport: `1440 × 1100` CSS pixels
+- Mobile viewport: `390 × 844` CSS pixels
+- Tested state: static GitHub Pages output, menu closed, page loaded at top
 
-## Viewports checked
+## Findings
 
-- Desktop: 1320 × 700
-- Mobile: 390 × 844
-
-## Comparison notes
-
-- The supplied title screenshot showed the heading forced across three lines. On desktop, the revised heading is one unbroken line (`white-space: nowrap`) and fits inside the 1280 px hero content area without horizontal overflow.
-- At the mobile breakpoint, the heading intentionally returns to normal wrapping and occupies three readable lines without clipping or horizontal overflow.
-- The supplied call-for-papers screenshot established the requested content density. The revised section now has two substantive introduction paragraphs, a scope lead-in, and ten detailed topic areas.
-- The hero, typography, spacing, and restrained monochrome content treatment remain consistent with the existing workshop site.
-- The schedule was checked in the rendered page and uses the requested 09:00 start, 10:30–11:00 and 15:30–16:00 breaks, and 12:30–14:00 lunch.
-- Browser console check returned no errors or warnings.
+- Hero hierarchy, warm paper surface, navy folio, serif title, vermilion deadline, and layered threat-path illustration closely match the selected visual direction without duplicating its source artwork.
+- The full content progression retains the same editorial grammar rather than reverting to card-heavy UI patterns.
+- Organizers, Advisory Board, and Student Organizers appear in the required order with rectangular editorial portraits and the shared contact address.
+- At `390px`, `documentElement.scrollWidth` equals `window.innerWidth` (`390px`), so there is no page-level horizontal overflow. The schedule alone remains intentionally scrollable inside its semantic wrapper.
+- Browser console check returned no warnings or errors.
+- No P0, P1, or P2 visual defects remain.
 
 ## Result
 
-PASS — desktop title, responsive fallback, expanded call-for-papers content, and workshop schedule all match the approved requirements.
+PASS — desktop and mobile implementations preserve the selected composition, content hierarchy, and responsive behavior.

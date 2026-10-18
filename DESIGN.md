@@ -1,47 +1,56 @@
 ---
 name: Agents Under Threat
-description: A restrained, reference-led academic workshop website for a proposed AAAI-27 event.
+description: An editorial proceedings-cover website for the AAAI-27 workshop on deployed LLM-agent security.
 colors:
-  paper: "#ffffff"
-  text: "#4b4b4b"
-  heading: "#3f3f3f"
-  link: "#356a99"
-  rule: "#ececec"
-  soft: "#f7f8fa"
+  paper: "#f6f2e9"
+  paper-deep: "#ebe5d9"
+  paper-cool: "#edf2f3"
+  ink: "#071d3e"
+  ink-soft: "#17395e"
+  muted: "#5b6874"
+  mineral: "#2d7195"
+  rule: "#cbd2d3"
+  risk: "#ef4b25"
 typography:
-  sans: "Arial, Helvetica, sans-serif"
+  editorial: "Georgia, Times New Roman, serif"
+  interface: "Geist, Arial, Helvetica, sans-serif"
 layout:
-  reading-width: "880px"
-  navigation-height: "72px"
-  hero-height: "clamp(520px, 52vw, 620px)"
-  desktop-breakpoint: "900px"
-  mobile-breakpoint: "640px"
+  max-width: "1240px"
+  navigation-height: "70px"
+  hero-columns: "112px / flexible copy / flexible artwork"
+  tablet-breakpoint: "900px"
+  mobile-breakpoint: "760px"
 ---
 
 # Design System: Agents Under Threat
 
-## North star
+## Visual thesis
 
-**The familiar academic workshop page.** The site deliberately follows the visual grammar of the supplied AgentWild workshop reference: a quiet white navigation bar, a full-width city photograph, centered white event metadata, and a single-column reading flow beneath it. The design should feel credible, calm, and immediately scannable to researchers.
+The site should feel like the cover and interior matter of an academic proceedings volume, not a startup landing page or a generic AI-security dashboard. The composition combines a narrow navy folio, a warm ivory editorial field, a large serif title, a restrained vermilion threat path, and a text-free layered systems illustration. Information density is handled with rules, numbered sections, and typographic hierarchy rather than card stacks.
 
-## Visual rules
+## Palette
 
-- Keep the page background white and body copy charcoal; use blue only for links.
-- Constrain long-form sections to an `880px` reading column with generous vertical spacing.
-- Separate sections with light gray rules and compact, conventional headings.
-- Use a semantic table for the schedule and simple ruled rows for dates and guidance.
-- Present speakers, organizers, and advisers in centered portrait grids. Until approved portraits are available, use circular initials with accessible labels.
-- Preserve the proposal status in the hero and label every unconfirmed date or program item as tentative.
-- Use no gradients, decorative glow, card shadows, entry animation, or security-dashboard motifs.
-
-## Navigation and hero
-
-The desktop navigation is a `72px` white bar with the workshop name at left and section links at right. At `900px` and below, keep the About shortcut and expose the remaining links through an accessible menu. The hero uses the Montréal photograph with a dark overlay, a compact proposal-status label, a large centered title, date, place, format, and contact address.
+- `paper` is the primary surface and keeps long reading sessions warm rather than stark.
+- `ink` carries primary type, folios, and the contact band.
+- `mineral` is reserved for structural labels, dates, and quiet system annotations.
+- `risk` marks deadlines, sequence numbers, active navigation, and adversarial emphasis.
+- `rule` separates content without boxes or shadows.
+- Do not add gradients, neon glows, glass panels, or multicolor AI effects.
 
 ## Typography
 
-Use Arial/Helvetica/system sans throughout. The hero title is bold and responsive; section headings are conventional medium-weight academic headings. Body copy stays at least `16px` with a comfortable `1.7` line height. Avoid display fonts and all-caps metadata except for the short proposal-status label.
+Headings use the local editorial serif stack beginning with Georgia. Body copy, controls, and metadata use Geist with Arial/Helvetica fallbacks. Hero and section titles are tightly set with low line height; supporting copy stays at `16–17px` with generous leading. Kicker labels use compact uppercase sans with tracked letters.
+
+## Hero and artwork
+
+The desktop hero is a three-part grid: the AAAI folio rail, title and event facts, then the threat-surface artwork. The image contains no text and should be treated like a journal-cover plate. Interface labels for inputs, tools, memory, and actions remain HTML so they stay crisp and accessible. The image may be cropped to fill its column but must not receive decorative CSS-generated illustrations.
+
+## Section grammar
+
+Every major section follows a consistent numbered kicker, large serif heading, and hairline rule. Research questions use three ruled columns. Scope topics form a two-column numbered index. Dates and people use restrained grids. Submission guidance and the schedule use semantic definition-list and table markup. The organizer hierarchy is always Organizers, Advisory Board, then Student Organizers.
+
+Portraits are rectangular `4:5` editorial crops with almost square corners. They should never become floating circular avatars or shadowed cards. The public contact remains the shared Google Group address.
 
 ## Responsive behavior
 
-At `900px`, switch to the compact menu, reduce hero type, and allow people grids to collapse. At `640px`, use a single-column reading flow, a roughly `500px` hero, horizontally scrollable schedule containment without page overflow, wrapped email addresses, and smaller circular portraits. All controls retain visible focus, and reduced-motion users receive no transitions.
+At `900px`, desktop navigation collapses and portrait grids reduce. At `760px`, the folio becomes a horizontal strip and the hero becomes a single reading flow with the artwork below the title. Research questions, dates, scope, and long-form text stack without horizontal overflow. At `640px`, event metadata and the deadline panel stack, the schedule receives its own horizontal scrolling region, emails wrap, and people remain in a compact two-column grid. Focus states remain visible and reduced-motion preferences disable transitions.
