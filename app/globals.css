@@ -210,7 +210,11 @@ section[id] { scroll-margin-top: calc(var(--nav-height) + 24px); }
   gap: 2.1rem 1.5rem;
   padding-top: .6rem;
 }
-.people-grid-three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.people-section + .people-section { padding-top: 3.4rem; }
+.people-grid-secondary {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 2.4rem 2rem;
+}
 .person-card { min-width: 0; text-align: center; }
 .person-portrait {
   position: relative;

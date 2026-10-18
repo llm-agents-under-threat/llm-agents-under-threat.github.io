@@ -28,7 +28,7 @@ test('first viewport states accepted workshop status, date, place, and local her
 });
 
 test('academic reading flow exposes the reference-led section order', () => {
-  const ids = ['news', 'about', 'cfp', 'dates', 'submissions', 'schedule', 'organizers', 'student-organizers', 'advisers', 'contact'];
+  const ids = ['news', 'about', 'cfp', 'dates', 'submissions', 'schedule', 'organizers', 'advisers', 'student-organizers', 'contact'];
   let previous = -1;
   for (const id of ids) {
     const position = page.indexOf(`id="${id}"`);

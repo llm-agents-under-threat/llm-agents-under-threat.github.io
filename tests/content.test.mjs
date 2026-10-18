@@ -33,6 +33,8 @@ test('accepted workshop content has the exact public workshop contract', () => {
   assert.equal(organizers.length, 4);
   assert.ok(organizers.every((organizer) => organizer.imageAvailable && organizer.image));
   assert.equal(organizers.find(({ name }) => name === 'Xinfeng Li')?.role, 'General Chair');
+  assert.equal(organizers.find(({ name }) => name === 'Xinyue Shen')?.role, 'Local Arrangement Chair');
+  assert.equal(organizers.find(({ name }) => name === 'Wenbo Pan')?.role, 'Publicity Chair');
   assert.equal(studentOrganizers.length, 3);
   assert.ok(studentOrganizers.every((organizer) => organizer.imageAvailable && organizer.image));
   assert.equal(advisers.length, 6);

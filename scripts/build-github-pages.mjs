@@ -23,12 +23,12 @@ const portraitMarkup = (person) => person.imageAvailable && person.image
   ? `<img src=".${escapeHtml(person.image)}" alt="Portrait of ${escapeHtml(person.name)}">`
   : `<span aria-label="Portrait placeholder for ${escapeHtml(person.name)}">${escapeHtml(initials(person.name))}</span>`;
 
-const peopleMarkup = (records) => records.map((person) => `
+const peopleMarkup = (records, { showRoles = true } = {}) => records.map((person) => `
   <article class="person-card">
     <div class="person-portrait">${portraitMarkup(person)}</div>
     <h3>${escapeHtml(person.name)}</h3>
     <p>${escapeHtml(person.affiliation)}</p>
-    <small>${escapeHtml(person.role)}</small>
+    ${showRoles ? `<small>${escapeHtml(person.role)}</small>` : ''}
   </article>`).join('');
 
 const scheduleRows = schedule.map((item, index) => ({
@@ -139,14 +139,14 @@ const html = `<!doctype html>
         <div class="people-grid">${peopleMarkup(organizers)}</div>
       </section>
 
-      <section class="content-section people-section" id="student-organizers" aria-labelledby="student-organizers-title">
-        <h2 id="student-organizers-title">Student Organizers</h2>
-        <div class="people-grid people-grid-three">${peopleMarkup(studentOrganizers)}</div>
-      </section>
-
       <section class="content-section people-section" id="advisers" aria-labelledby="advisers-title">
         <h2 id="advisers-title">Advisory Board</h2>
-        <div class="people-grid people-grid-three">${peopleMarkup(advisers)}</div>
+        <div class="people-grid people-grid-secondary">${peopleMarkup(advisers, { showRoles: false })}</div>
+      </section>
+
+      <section class="content-section people-section" id="student-organizers" aria-labelledby="student-organizers-title">
+        <h2 id="student-organizers-title">Student Organizers</h2>
+        <div class="people-grid people-grid-secondary">${peopleMarkup(studentOrganizers, { showRoles: false })}</div>
       </section>
 
       <section class="content-section contact-section" id="contact" aria-labelledby="contact-title">

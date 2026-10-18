@@ -33,7 +33,7 @@ type Person = {
 const initials = (name: string) =>
   name.split(' ').filter(Boolean).map((part) => part[0]).join('').slice(0, 2).toUpperCase();
 
-function PersonCard({ person }: { person: Person }) {
+function PersonCard({ person, showRole = true }: { person: Person; showRole?: boolean }) {
   return (
     <article className="person-card">
       <div className="person-portrait">
@@ -45,7 +45,7 @@ function PersonCard({ person }: { person: Person }) {
       </div>
       <h3>{person.name}</h3>
       <p>{person.affiliation}</p>
-      <small>{person.role}</small>
+      {showRole ? <small>{person.role}</small> : null}
     </article>
   );
 }
@@ -191,14 +191,14 @@ export default function Home() {
             <div className="people-grid">{organizers.map((person) => <PersonCard key={person.name} person={person} />)}</div>
           </section>
 
-          <section className="content-section people-section" id="student-organizers" aria-labelledby="student-organizers-title">
-            <h2 id="student-organizers-title">Student Organizers</h2>
-            <div className="people-grid people-grid-three">{studentOrganizers.map((person) => <PersonCard key={person.name} person={person} />)}</div>
-          </section>
-
           <section className="content-section people-section" id="advisers" aria-labelledby="advisers-title">
             <h2 id="advisers-title">Advisory Board</h2>
-            <div className="people-grid people-grid-three">{advisers.map((person) => <PersonCard key={person.name} person={person} />)}</div>
+            <div className="people-grid people-grid-secondary">{advisers.map((person) => <PersonCard key={person.name} person={person} showRole={false} />)}</div>
+          </section>
+
+          <section className="content-section people-section" id="student-organizers" aria-labelledby="student-organizers-title">
+            <h2 id="student-organizers-title">Student Organizers</h2>
+            <div className="people-grid people-grid-secondary">{studentOrganizers.map((person) => <PersonCard key={person.name} person={person} showRole={false} />)}</div>
           </section>
 
           <section className="content-section contact-section" id="contact" aria-labelledby="contact-title">
