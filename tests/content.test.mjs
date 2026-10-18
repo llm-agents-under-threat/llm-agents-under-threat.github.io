@@ -27,6 +27,11 @@ test('accepted workshop content has the exact public workshop contract', () => {
   assert.equal(workshop.contact, 'llm-agents-under-threat@googlegroups.com');
   assert.equal(researchQuestions.length, 3);
   assert.equal(cfpTopics.length, 10);
+  assert.match(cfpTopics.find(({ number }) => number === '05')?.text ?? '', /unauthorized actions and resource abuse/);
+  assert.match(cfpTopics.find(({ number }) => number === '07')?.text ?? '', /access control/);
+  assert.match(cfpTopics.find(({ number }) => number === '07')?.text ?? '', /resource controls/);
+  assert.match(cfpTopics.find(({ number }) => number === '09')?.text ?? '', /adaptive red teaming/);
+  assert.match(cfpTopics.find(({ number }) => number === '09')?.text ?? '', /security, utility, availability, and performance metrics/);
   assert.equal(importantDates.length, 3);
   assert.equal(schedule.length, 13);
   assert.equal(speakers.length, 4);

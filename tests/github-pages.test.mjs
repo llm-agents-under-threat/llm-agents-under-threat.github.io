@@ -37,16 +37,26 @@ test('GitHub Pages generator emits a complete standalone workshop site', async (
   assert.match(html, /accepted for AAAI-27/);
   assert.doesNotMatch(html, /tentative|proposed workshop|under review|pending workshop confirmation|after workshop confirmation|subject to change/i);
   assert.match(html, /<h1 id="hero-title">LLM Agents Under Threat in Cyberspace<\/h1>/);
+  assert.match(html, /class="hero-folio"/);
+  assert.match(html, /class="hero-copy"/);
+  assert.match(html, /class="hero-artwork"/);
+  assert.match(html, /class="deadline-panel"/);
+  assert.match(html, /class="research-questions"/);
+  assert.match(html, /class="section-kicker"/);
+  assert.match(html, /February 22 or 23, 2027/);
+  assert.match(html, /November 20, 2026/);
+  assert.match(html, /Anywhere on Earth/);
 
   const cfpSection = html.match(/<section class="content-section" id="cfp"[\s\S]*?<\/section>/)?.[0] ?? '';
   assert.ok((cfpSection.match(/<p>/g) ?? []).length >= 3, 'CFP should include a substantial introduction and scope lead-in');
   assert.equal((cfpSection.match(/<li>/g) ?? []).length, 10);
 
-  assert.match(styles, /\.hero h1\s*{[^}]*white-space:\s*nowrap/s);
-  assert.match(styles, /@media\s*\(max-width:\s*860px\)[\s\S]*\.hero h1\s*{[^}]*white-space:\s*normal/s);
+  assert.match(styles, /\.hero-layout\s*{[^}]*grid-template-columns:/s);
+  assert.match(styles, /@media\s*\(max-width:\s*760px\)/s);
   assert.match(html, /<table class="schedule-table">/);
   assert.doesNotMatch(html, /id="speakers"|href="#speakers"|Invited Speakers|Niloofar Mireshghallah/);
-  assert.match(html, /src="\.\/hero-montreal\.jpg"/);
+  assert.match(html, /src="\.\/agent-threat-surface\.png"/);
+  assert.doesNotMatch(html, /hero-montreal\.jpg|Arild Vågen|CC BY-SA 4\.0/);
   assert.match(html, /src="\.\/people\/xinfeng-li\.png" alt="Portrait of Xinfeng Li"/);
   assert.match(html, /src="\.\/people\/aditi-raghunathan\.jpg" alt="Portrait of Aditi Raghunathan"/);
   assert.match(html, /src="\.\/people\/xinyue-shen\.jpg" alt="Portrait of Xinyue Shen"/);
@@ -68,7 +78,7 @@ test('GitHub Pages generator emits a complete standalone workshop site', async (
   assert.doesNotMatch(styles, /@import\s+['"]tailwindcss/);
   assert.match(menuScript, /aria-expanded/);
 
-  assert.ok((await stat(join(outputDirectory, 'hero-montreal.jpg'))).size > 100_000);
+  assert.ok((await stat(join(outputDirectory, 'agent-threat-surface.png'))).size > 100_000);
   assert.ok((await stat(join(outputDirectory, 'people', 'xinfeng-li.png'))).size > 10_000);
   assert.ok((await stat(join(outputDirectory, 'people', 'aditi-raghunathan.jpg'))).size > 10_000);
   assert.ok((await stat(join(outputDirectory, 'people', 'xinyue-shen.jpg'))).size > 10_000);

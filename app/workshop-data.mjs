@@ -55,7 +55,7 @@ export const cfpTopics = [
   {
     number: '05',
     title: 'Tool and privilege misuse',
-    text: 'Exploitation of browsers, code execution, APIs, credentials, permissions, external services, and action-planning pipelines.',
+    text: 'Exploitation of browsers, code execution, APIs, credentials, permissions, external services, and action-planning pipelines, including unauthorized actions and resource abuse.',
   },
   {
     number: '06',
@@ -65,7 +65,7 @@ export const cfpTopics = [
   {
     number: '07',
     title: 'Secure agent architectures',
-    text: 'Isolation, sandboxing, least privilege, safe tool interfaces, policy enforcement, capability control, and secure-by-design orchestration.',
+    text: 'Isolation, sandboxing, access control, least privilege, resource controls, safe tool interfaces, policy enforcement, capability control, and secure agent orchestration.',
   },
   {
     number: '08',
@@ -75,7 +75,7 @@ export const cfpTopics = [
   {
     number: '09',
     title: 'Evaluation and benchmarking',
-    text: 'Realistic threat models, red-teaming methods, environments, metrics, datasets, reproducible benchmarks, and end-to-end evaluations.',
+    text: 'Realistic threat models, adaptive red teaming, security, utility, availability, and performance metrics, datasets, reproducible benchmarks, and end-to-end agent evaluations.',
   },
   {
     number: '10',

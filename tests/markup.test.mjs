@@ -17,14 +17,17 @@ test('document shell publishes accurate metadata and an accessible entry path', 
   assert.match(page, /aria-expanded=/);
 });
 
-test('first viewport states accepted workshop status, date, place, and local hero asset', () => {
+test('first viewport states accepted workshop status, date, place, deadline, and editorial hero asset', () => {
   assert.match(renderedSources, /AAAI-27 Workshop/);
   assert.match(page, /accepted for AAAI-27/);
   assert.match(renderedSources, /February 22 or 23, 2027/);
   assert.match(renderedSources, /Montréal, Canada/);
-  assert.match(page, /\/hero-montreal\.jpg/);
-  assert.match(page, /Arild Vågen/);
-  assert.match(page, /CC BY-SA 4\.0/);
+  assert.match(renderedSources, /November 20, 2026/);
+  assert.match(page, /\/agent-threat-surface\.png/);
+  for (const className of ['hero-folio', 'hero-copy', 'hero-artwork', 'deadline-panel']) {
+    assert.match(page, new RegExp(`className="[^"]*${className}`));
+  }
+  assert.doesNotMatch(page, /hero-montreal\.jpg|Arild Vågen|CC BY-SA 4\.0/);
 });
 
 test('academic reading flow exposes the reference-led section order', () => {
@@ -117,13 +120,15 @@ test('people use portrait-shaped cells with accessible initials fallbacks', () =
   assert.match(page, /initials\(person\.name\)/);
 });
 
-test('visual source rejects the discarded security campaign system', () => {
-  assert.match(page, /className="reading-column"/);
-  assert.match(styles, /\.site-header\s*{[^}]*background:\s*#fff/);
-  assert.match(styles, /\.hero\s*{[^}]*height:\s*clamp\(520px,/);
-  assert.match(styles, /\.reading-column\s*{[^}]*max-width:\s*880px/);
-  assert.match(styles, /\.person-portrait\s*{[^}]*border-radius:\s*50%/);
-  assert.doesNotMatch(renderedSources, /threat-map|topic-row|schedule-list|section-index/);
+test('visual source exposes the selected proceedings-cover editorial system', () => {
+  assert.match(page, /className="editorial-shell"/);
+  assert.match(page, /className="research-questions"/);
+  assert.match(page, /className="section-kicker"/);
+  assert.match(styles, /--ink:/);
+  assert.match(styles, /--paper:/);
+  assert.match(styles, /--risk:/);
+  assert.match(styles, /\.hero-layout\s*{[^}]*grid-template-columns:/s);
+  assert.match(styles, /\.person-portrait\s*{[^}]*border-radius:/s);
   assert.doesNotMatch(styles, /--color-cyan|#4fe0d0|reveal-pending/);
 });
 
