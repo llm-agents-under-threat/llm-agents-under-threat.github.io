@@ -2,9 +2,9 @@
 name: Agents Under Threat
 description: An editorial proceedings-cover website for the AAAI-27 workshop on deployed LLM-agent security.
 colors:
-  paper: "#f6f2e9"
-  paper-deep: "#ebe5d9"
-  paper-cool: "#edf2f3"
+  paper: "#ffffff"
+  paper-deep: "#f7f8fa"
+  paper-cool: "#ffffff"
   ink: "#071d3e"
   ink-soft: "#17395e"
   muted: "#5b6874"
@@ -26,11 +26,11 @@ layout:
 
 ## Visual thesis
 
-The site should feel like the cover and interior matter of an academic proceedings volume, not a startup landing page or a generic AI-security dashboard. The composition combines a narrow navy folio, a warm ivory editorial field, a large serif title, a restrained vermilion threat path, and a text-free layered systems illustration. Information density is handled with rules, numbered sections, and typographic hierarchy rather than card stacks.
+The site should feel like the cover and interior matter of an academic proceedings volume, not a startup landing page or a generic AI-security dashboard. The composition combines a narrow navy folio, a pure-white editorial field, a restrained serif title, a vermilion threat path, and a text-free layered systems illustration. Information density is handled with rules, numbered sections, and typographic hierarchy rather than card stacks.
 
 ## Palette
 
-- `paper` is the primary surface and keeps long reading sessions warm rather than stark.
+- `paper` is a true white primary surface, giving the site the clarity of a conference proceedings page.
 - `ink` carries primary type, folios, and the contact band.
 - `mineral` is reserved for structural labels, dates, and quiet system annotations.
 - `risk` marks deadlines, sequence numbers, active navigation, and adversarial emphasis.
@@ -39,7 +39,7 @@ The site should feel like the cover and interior matter of an academic proceedin
 
 ## Typography
 
-Headings use the local editorial serif stack beginning with Georgia. Body copy, controls, and metadata use Geist with Arial/Helvetica fallbacks. Hero and section titles are tightly set with low line height; supporting copy stays at `16–17px` with generous leading. Kicker labels use compact uppercase sans with tracked letters.
+Headings use the local editorial serif stack beginning with Georgia. Body copy, controls, and metadata use Geist with Arial/Helvetica fallbacks. Hero and section titles are restrained rather than oversized, with tracking no tighter than `-0.035em`; supporting copy stays at `16–17px` with generous leading. Kicker labels use compact uppercase sans with tracked letters.
 
 ## Hero and artwork
 

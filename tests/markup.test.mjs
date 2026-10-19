@@ -130,6 +130,14 @@ test('visual source exposes the selected proceedings-cover editorial system', ()
   assert.doesNotMatch(styles, /--color-cyan|#4fe0d0|reveal-pending/);
 });
 
+test('academic surface uses a pure-white paper system without ivory remnants', () => {
+  assert.match(styles, /--paper:\s*#fff(?:fff)?;/i);
+  assert.match(styles, /--paper-deep:\s*#f7f8fa;/i);
+  assert.match(styles, /body\s*{[^}]*background:\s*var\(--paper\)/s);
+  assert.match(styles, /\.hero-copy\s*{[^}]*background:\s*var\(--paper\)/s);
+  assert.doesNotMatch(styles, /#f6f2e9|#ebe5d9|#eee9df|rgba\(246,\s*242,\s*233/i);
+});
+
 test('mobile rules protect tables, email, and people from horizontal overflow', () => {
   assert.match(styles, /overflow-wrap:\s*anywhere/);
   assert.match(styles, /\.schedule-table-wrapper\s*{[^}]*overflow-x:\s*auto/);
