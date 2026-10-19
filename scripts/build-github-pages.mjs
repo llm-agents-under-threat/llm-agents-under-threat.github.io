@@ -1,4 +1,5 @@
 import { copyFile, mkdir, readFile, writeFile } from 'node:fs/promises';
+import { createHash } from 'node:crypto';
 import { resolve } from 'node:path';
 
 import {
@@ -33,6 +34,19 @@ const peopleMarkup = (records, { showRoles = true } = {}) => records.map((person
 const scheduleRows = schedule.map((item, index) => ({ ...item, session: index < 6 ? 'morning' : 'afternoon' }));
 const scheduleMarkup = (session) => scheduleRows.filter((item) => item.session === session).map((item) => `<tr><th scope="row"><time>${escapeHtml(item.time)}</time></th><td><strong>${escapeHtml(item.title)}</strong><small>${escapeHtml(item.type)}</small></td></tr>`).join('');
 
+const sourceStyles = await readFile(resolve(projectRoot, 'app/globals.css'), 'utf8');
+const standaloneStyles = `
+:root { --font-geist-sans: Arial, Helvetica, sans-serif; --font-editorial: Georgia, 'Times New Roman', serif; }
+html { -webkit-text-size-adjust: 100%; }
+body, h1, h2, h3, p { margin-block-start: 0; }
+img { display: block; max-width: 100%; }
+button { font: inherit; }
+[hidden] { display: none !important; }
+.menu-button [data-menu-icon] { font-size: 1.35rem; line-height: 1; }
+.meta-icon { display: inline-grid; place-items: center; width: 24px; height: 24px; font-family: Arial, sans-serif; }
+${sourceStyles.replace(/^@import[^\n]*\n/gm, '')}`;
+const styleVersion = createHash('sha256').update(standaloneStyles).digest('hex').slice(0, 8);
+
 const html = `<!doctype html>
 <html lang="en">
 <head>
@@ -41,7 +55,7 @@ const html = `<!doctype html>
   <title>${escapeHtml(workshop.title)} · ${escapeHtml(workshop.status)}</title>
   <meta name="description" content="Call for papers for the AAAI-27 workshop on adversarial threats and defenses for LLM agents.">
   <link rel="icon" href="./favicon.svg">
-  <link rel="stylesheet" href="./styles.css">
+  <link rel="stylesheet" href="./styles.css?v=${styleVersion}">
   <script src="./menu.js" defer></script>
 </head>
 <body>
@@ -104,18 +118,6 @@ const html = `<!doctype html>
   <footer class="site-footer editorial-shell"><p>${escapeHtml(workshop.title)}</p><p>${escapeHtml(workshop.status)} · ${escapeHtml(workshop.location)}</p></footer>
 </body>
 </html>`;
-
-const sourceStyles = await readFile(resolve(projectRoot, 'app/globals.css'), 'utf8');
-const standaloneStyles = `
-:root { --font-geist-sans: Arial, Helvetica, sans-serif; --font-editorial: Georgia, 'Times New Roman', serif; }
-html { -webkit-text-size-adjust: 100%; }
-body, h1, h2, h3, p { margin-block-start: 0; }
-img { display: block; max-width: 100%; }
-button { font: inherit; }
-[hidden] { display: none !important; }
-.menu-button [data-menu-icon] { font-size: 1.35rem; line-height: 1; }
-.meta-icon { display: inline-grid; place-items: center; width: 24px; height: 24px; font-family: Arial, sans-serif; }
-${sourceStyles.replace(/^@import[^\n]*\n/gm, '')}`;
 
 const menuScript = `const button = document.querySelector('.menu-button');
 const navigation = document.querySelector('#mobile-navigation');

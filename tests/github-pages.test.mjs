@@ -72,6 +72,7 @@ test('GitHub Pages generator emits a complete standalone workshop site', async (
   assert.ok(html.indexOf('id="advisers"') < html.indexOf('id="student-organizers"'));
   assert.doesNotMatch(html, /Portrait placeholder for (?:Aditi Raghunathan|Xinyue Shen|Wenbo Pan)/);
   assert.match(html, /href="\.\/favicon\.svg"/);
+  assert.match(html, /href="\.\/styles\.css\?v=[a-f0-9]{8}"/);
   assert.doesNotMatch(html, /\/_next\/|chatgpt\.site/);
 
   assert.match(styles, /\.hero\s*{/);
