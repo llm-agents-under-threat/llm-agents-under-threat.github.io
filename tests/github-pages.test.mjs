@@ -41,13 +41,13 @@ test('GitHub Pages generator emits a complete standalone workshop site', async (
   assert.match(html, /class="hero-copy"/);
   assert.match(html, /class="hero-artwork"/);
   assert.match(html, /class="deadline-panel"/);
-  assert.match(html, /class="research-questions"/);
-  assert.match(html, /class="section-kicker"/);
+  assert.match(html, /class="reading-column"/);
+  assert.match(html, /class="topic-list-simple"/);
   assert.match(html, /February 22 or 23, 2027/);
   assert.match(html, /November 20, 2026/);
   assert.match(html, /Anywhere on Earth/);
 
-  const cfpSection = html.match(/<section class="content-section cfp-section" id="cfp"[\s\S]*?<\/section>/)?.[0] ?? '';
+  const cfpSection = html.match(/<section class="content-section" id="cfp"[\s\S]*?<\/section>/)?.[0] ?? '';
   assert.ok((cfpSection.match(/<p>/g) ?? []).length >= 3, 'CFP should include a substantial introduction and scope lead-in');
   assert.equal((cfpSection.match(/<li>/g) ?? []).length, 10);
 

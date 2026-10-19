@@ -7,7 +7,6 @@ import {
   cfpTopics,
   importantDates,
   organizers,
-  researchQuestions,
   schedule,
   submissionPolicy,
   studentOrganizers,
@@ -82,40 +81,27 @@ const html = `<!doctype html>
       </div>
     </section>
 
-    <div class="editorial-shell">
-      <section class="status-strip" id="news" aria-labelledby="news-title"><h2 id="news-title">Latest</h2><p><time datetime="2026-10">October 2026</time> · LLM Agents Under Threat in Cyberspace has been accepted for AAAI-27.</p></section>
+    <div class="reading-column">
+      <section class="content-section news-section" id="news" aria-labelledby="news-title"><h2 id="news-title">News</h2><ul class="news-list"><li><strong>[October 2026]</strong> LLM Agents Under Threat in Cyberspace has been accepted for AAAI-27.</li></ul></section>
 
-      <section class="content-section about-section" id="about" aria-labelledby="about-title">
-        <div class="section-heading"><p class="section-kicker">01 / Research focus</p><h2 id="about-title">The threat surface</h2></div>
-        <div class="about-intro"><p class="lead">${escapeHtml(workshop.summary)}</p><div><p>LLM agents increasingly observe, remember, plan, coordinate, and act through external tools. These capabilities create attack surfaces across input channels, tool use, memory, identity, and multi-agent communication.</p><p>This workshop brings together researchers and practitioners working on realistic attacks, evaluations, secure agent architectures, and responsible defenses for agents operating in adversarial environments.</p></div></div>
-        <div class="research-questions">${researchQuestions.map((question) => `<article><p><span>${escapeHtml(question.index)}</span><small>${escapeHtml(question.tag)}</small></p><h3>${escapeHtml(question.title)}</h3><p>${escapeHtml(question.text)}</p></article>`).join('')}</div>
-      </section>
+      <section class="content-section" id="about" aria-labelledby="about-title"><h2 id="about-title">About</h2><p>${escapeHtml(workshop.summary)}</p><p>LLM agents increasingly observe, remember, plan, coordinate, and act through external tools. These capabilities create attack surfaces across input channels, tool use, memory, identity, and multi-agent communication.</p><p>This workshop brings together researchers and practitioners working on realistic attacks, evaluations, secure agent architectures, and responsible defenses for agents operating in adversarial environments.</p></section>
 
-      <section class="content-section cfp-section" id="cfp" aria-labelledby="cfp-title">
-        <div class="section-heading"><p class="section-kicker">02 / Call for Papers</p><h2 id="cfp-title">Research at the agent boundary</h2></div>
-        <div class="cfp-intro"><p>LLM Agents Under Threat in Cyberspace invites submissions from researchers and practitioners studying how autonomous LLM agents behave when their observations, memories, tools, identities, and collaborators may be adversarial or compromised. As agents gain the ability to browse the web, execute code, call APIs, use credentials, access external services, and coordinate with other agents, traditional language-model vulnerabilities can become concrete security failures with consequences beyond the model interface.</p><p>The workshop connects research on attacks, defenses, evaluation, and secure system design. We welcome empirical studies, new benchmarks, red-teaming methods, secure architectures, position papers, datasets, and lessons from deployed systems. We are especially interested in work that develops realistic threat models, evaluates end-to-end agent behavior, and proposes defenses that remain effective against adaptive attackers.</p></div>
-        <p class="scope-label">Topics include, but are not limited to</p>
-        <ol class="topic-index">${cfpTopics.map((topic) => `<li><span>${escapeHtml(topic.number)}</span><div><h3>${escapeHtml(topic.title)}</h3><p>${escapeHtml(topic.text)}</p></div></li>`).join('')}</ol>
-      </section>
+      <section class="content-section" id="cfp" aria-labelledby="cfp-title"><h2 id="cfp-title">Call for Papers</h2><p>LLM Agents Under Threat in Cyberspace invites submissions from researchers and practitioners studying how autonomous LLM agents behave when their observations, memories, tools, identities, and collaborators may be adversarial or compromised. As agents gain the ability to browse the web, execute code, call APIs, use credentials, access external services, and coordinate with other agents, traditional language-model vulnerabilities can become concrete security failures with consequences beyond the model interface.</p><p>The workshop connects research on attacks, defenses, evaluation, and secure system design. We welcome empirical studies, new benchmarks, red-teaming methods, secure architectures, position papers, datasets, and lessons from deployed systems. We are especially interested in work that develops realistic threat models, evaluates end-to-end agent behavior, and proposes defenses that remain effective against adaptive attackers.</p><p>Topics include, but are not limited to:</p><ul class="topic-list-simple">${cfpTopics.map((topic) => `<li><strong>${escapeHtml(topic.title)}.</strong> ${escapeHtml(topic.text)}</li>`).join('')}</ul></section>
 
-      <section class="content-section dates-section" id="dates" aria-labelledby="dates-title"><div class="section-heading compact-heading"><p class="section-kicker">03 / Milestones</p><h2 id="dates-title">Important dates</h2></div><ol class="date-rail">${importantDates.map((date, index) => `<li${index === 0 ? ' class="primary-date"' : ''}><span>0${index + 1}</span><small>${escapeHtml(date.label)}</small><strong>${escapeHtml(date.value)}</strong><p>${escapeHtml(date.note)}</p></li>`).join('')}</ol></section>
+      <section class="content-section" id="dates" aria-labelledby="dates-title"><h2 id="dates-title">Important Dates</h2><ul class="date-list">${importantDates.map((date) => `<li><strong>${escapeHtml(date.label)}:</strong><span>${escapeHtml(date.value)}</span><small>${escapeHtml(date.note)}</small></li>`).join('')}</ul></section>
 
-      <section class="content-section guidelines-section" id="submissions" aria-labelledby="submissions-title">
-        <div class="section-heading"><p class="section-kicker">04 / Submissions</p><h2 id="submissions-title">Submission guidelines</h2></div>
-        <div class="submission-status"><span>Status</span><p>${escapeHtml(submissionPolicy.destination)}</p></div>
-        <dl class="guideline-grid"><div><dt>Length</dt><dd>${escapeHtml(submissionPolicy.format)}</dd></div><div><dt>Format</dt><dd>${escapeHtml(submissionPolicy.style)}</dd></div><div><dt>Review</dt><dd>${escapeHtml(submissionPolicy.review)}</dd></div><div><dt>Publication</dt><dd>${escapeHtml(submissionPolicy.publication)}</dd></div><div><dt>Responsible disclosure</dt><dd>${escapeHtml(submissionPolicy.disclosure)}</dd></div></dl>
-      </section>
+      <section class="content-section" id="submissions" aria-labelledby="submissions-title"><h2 id="submissions-title">Submission Guidelines</h2><p><strong>Status:</strong> ${escapeHtml(submissionPolicy.destination)}</p><ul class="guideline-list"><li><strong>Length:</strong> ${escapeHtml(submissionPolicy.format)}</li><li><strong>Format:</strong> ${escapeHtml(submissionPolicy.style)}</li><li><strong>Review:</strong> ${escapeHtml(submissionPolicy.review)}</li><li><strong>Publication:</strong> ${escapeHtml(submissionPolicy.publication)}</li><li><strong>Responsible disclosure:</strong> ${escapeHtml(submissionPolicy.disclosure)}</li></ul></section>
 
-      <section class="content-section schedule-section" id="schedule" aria-labelledby="schedule-title"><div class="section-heading compact-heading"><p class="section-kicker">05 / Program</p><h2 id="schedule-title">Workshop schedule</h2><p class="section-note">All times are local.</p></div><div class="schedule-table-wrapper"><table class="schedule-table"><thead class="sr-only"><tr><th scope="col">Time</th><th scope="col">Activity</th></tr></thead><tbody><tr class="session-heading"><th scope="rowgroup" colspan="2">Morning Session</th></tr>${scheduleMarkup('morning')}<tr class="session-heading"><th scope="rowgroup" colspan="2">Afternoon Session</th></tr>${scheduleMarkup('afternoon')}</tbody></table></div></section>
+      <section class="content-section" id="schedule" aria-labelledby="schedule-title"><h2 id="schedule-title">Schedule</h2><p class="section-note">All times are local.</p><div class="schedule-table-wrapper"><table class="schedule-table"><thead class="sr-only"><tr><th scope="col">Time</th><th scope="col">Activity</th></tr></thead><tbody><tr class="session-heading"><th scope="rowgroup" colspan="2">Morning Session</th></tr>${scheduleMarkup('morning')}<tr class="session-heading"><th scope="rowgroup" colspan="2">Afternoon Session</th></tr>${scheduleMarkup('afternoon')}</tbody></table></div></section>
 
-      <section class="content-section people-section" id="organizers" aria-labelledby="organizers-title"><div class="section-heading compact-heading"><p class="section-kicker">06 / People</p><h2 id="organizers-title">Workshop organizers</h2></div><div class="people-grid organizers-grid">${peopleMarkup(organizers)}</div></section>
-      <section class="content-section people-section advisory-section" id="advisers" aria-labelledby="advisers-title"><div class="section-heading compact-heading"><p class="section-kicker">Advisory</p><h2 id="advisers-title">Advisory board</h2></div><div class="people-grid people-grid-secondary">${peopleMarkup(advisers, { showRoles: false })}</div></section>
-      <section class="content-section people-section student-section" id="student-organizers" aria-labelledby="student-organizers-title"><div class="section-heading compact-heading"><p class="section-kicker">Student team</p><h2 id="student-organizers-title">Student organizers</h2></div><div class="people-grid people-grid-secondary student-grid">${peopleMarkup(studentOrganizers, { showRoles: false })}</div></section>
+      <section class="content-section people-section" id="organizers" aria-labelledby="organizers-title"><h2 id="organizers-title">Workshop Organizers</h2><div class="people-grid">${peopleMarkup(organizers)}</div></section>
+      <section class="content-section people-section" id="advisers" aria-labelledby="advisers-title"><h2 id="advisers-title">Advisory Board</h2><div class="people-grid people-grid-secondary">${peopleMarkup(advisers, { showRoles: false })}</div></section>
+      <section class="content-section people-section" id="student-organizers" aria-labelledby="student-organizers-title"><h2 id="student-organizers-title">Student Organizers</h2><div class="people-grid people-grid-secondary">${peopleMarkup(studentOrganizers, { showRoles: false })}</div></section>
 
-      <section class="contact-section" id="contact" aria-labelledby="contact-title"><p class="section-kicker">Contact</p><h2 id="contact-title">Questions about scope or fit?</h2><a href="mailto:${escapeHtml(workshop.contact)}">${escapeHtml(workshop.contact)} <span aria-hidden="true">→</span></a></section>
+      <section class="content-section contact-section" id="contact" aria-labelledby="contact-title"><h2 id="contact-title">Contact</h2><p>Questions about scope or fit can be sent to <a href="mailto:${escapeHtml(workshop.contact)}">${escapeHtml(workshop.contact)}</a>.</p></section>
     </div>
   </main>
-  <footer class="site-footer editorial-shell"><p>${escapeHtml(workshop.title)}</p><p>${escapeHtml(workshop.status)} · ${escapeHtml(workshop.location)}</p></footer>
+  <footer class="site-footer"><p>${escapeHtml(workshop.title)} · ${escapeHtml(workshop.status)}</p></footer>
 </body>
 </html>`;
 

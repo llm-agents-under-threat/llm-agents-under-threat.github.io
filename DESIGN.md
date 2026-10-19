@@ -1,6 +1,6 @@
 ---
 name: Agents Under Threat
-description: An editorial proceedings-cover website for the AAAI-27 workshop on deployed LLM-agent security.
+description: A hybrid academic workshop website with a poster-led opening and a restrained reading layout.
 colors:
   paper: "#ffffff"
   paper-deep: "#f7f8fa"
@@ -15,9 +15,9 @@ typography:
   editorial: "Georgia, Times New Roman, serif"
   interface: "Geist, Arial, Helvetica, sans-serif"
 layout:
-  max-width: "1240px"
+  max-width: "880px content / 1240px hero"
   navigation-height: "70px"
-  hero-columns: "112px / flexible copy / flexible artwork"
+  hero-columns: "82px / compact copy / flexible artwork"
   tablet-breakpoint: "900px"
   mobile-breakpoint: "760px"
 ---
@@ -26,7 +26,7 @@ layout:
 
 ## Visual thesis
 
-The site should feel like the cover and interior matter of an academic proceedings volume, not a startup landing page or a generic AI-security dashboard. The composition combines a narrow navy folio, a pure-white editorial field, a restrained serif title, a vermilion threat path, and a text-free layered systems illustration. Information density is handled with rules, numbered sections, and typographic hierarchy rather than card stacks.
+The opening should feel like the cover of an academic proceedings volume, while the rest of the site should return to a familiar, quiet reading flow. The hero combines a narrow navy folio, a pure-white editorial field, a restrained serif title, a vermilion threat path, and a text-free layered systems illustration. Below it, information is presented as clear sections, lists, tables, and people grids rather than an all-page poster composition.
 
 ## Palette
 
@@ -39,7 +39,7 @@ The site should feel like the cover and interior matter of an academic proceedin
 
 ## Typography
 
-Headings use the local editorial serif stack beginning with Georgia. Body copy, controls, and metadata use Geist with Arial/Helvetica fallbacks. Hero and section titles are restrained rather than oversized, with tracking no tighter than `-0.035em`; supporting copy stays at `16–17px` with generous leading. Kicker labels use compact uppercase sans with tracked letters.
+The hero title uses the local editorial serif stack beginning with Georgia. Lower-page headings, body copy, controls, and metadata use Geist with Arial/Helvetica fallbacks. The hero title is restrained rather than oversized; lower section headings stay around `1.4–1.55rem`. Supporting copy stays at `16–17px` with generous leading, and kicker labels use compact uppercase sans with tracked letters.
 
 ## Hero and artwork
 
@@ -47,10 +47,10 @@ The desktop hero is a three-part grid: the AAAI folio rail, title and event fact
 
 ## Section grammar
 
-Every major section follows a consistent numbered kicker, large serif heading, and hairline rule. Research questions use three ruled columns. Scope topics form a two-column numbered index. Dates and people use restrained grids. Submission guidance and the schedule use semantic definition-list and table markup. The organizer hierarchy is always Organizers, Advisory Board, then Student Organizers.
+Below the hero, every major section follows a simple heading, short rule, and comfortable reading rhythm. Scope topics and dates use plain lists; submission guidance and the schedule use semantic text and table markup. The organizer hierarchy is always Organizers, Advisory Board, then Student Organizers.
 
-Portraits are rectangular `4:5` editorial crops with almost square corners. They should never become floating circular avatars or shadowed cards. The public contact remains the shared Google Group address.
+Portraits use consistent circular crops without shadows or card chrome. The public contact remains the shared Google Group address.
 
 ## Responsive behavior
 
-At `900px`, desktop navigation collapses and portrait grids reduce. At `760px`, the folio becomes a horizontal strip and the hero becomes a single reading flow with the artwork below the title. Research questions, dates, scope, and long-form text stack without horizontal overflow. At `640px`, event metadata and the deadline panel stack, the schedule receives its own horizontal scrolling region, emails wrap, and people remain in a compact two-column grid. Focus states remain visible and reduced-motion preferences disable transitions.
+At `900px`, desktop navigation collapses and portrait grids reduce. At `760px`, the folio becomes a horizontal strip and the hero becomes a single reading flow with the artwork below the title. Lower-page sections remain a simple single reading column without horizontal overflow. At `640px`, event metadata and the deadline panel stack, the schedule receives its own horizontal scrolling region, emails wrap, and people remain in a compact two-column grid. Focus states remain visible and reduced-motion preferences disable transitions.

@@ -118,16 +118,24 @@ test('people use portrait-shaped cells with accessible initials fallbacks', () =
   assert.match(page, /initials\(person\.name\)/);
 });
 
-test('visual source exposes the selected proceedings-cover editorial system', () => {
-  assert.match(page, /className="editorial-shell"/);
-  assert.match(page, /className="research-questions"/);
-  assert.match(page, /className="section-kicker"/);
+test('visual source uses a poster-led hero and the earlier reading layout below it', () => {
+  assert.match(page, /className="[^"]*editorial-shell[^"]*"/);
+  assert.match(page, /className="reading-column"/);
+  assert.match(page, /className="topic-list-simple"/);
+  assert.doesNotMatch(page, /className="research-questions"|className="topic-index"|className="date-rail"/);
   assert.match(styles, /--ink:/);
   assert.match(styles, /--paper:/);
   assert.match(styles, /--risk:/);
   assert.match(styles, /\.hero-layout\s*{[^}]*grid-template-columns:/s);
-  assert.match(styles, /\.person-portrait\s*{[^}]*border-radius:/s);
+  assert.match(styles, /\.reading-column\s*{[^}]*max-width:\s*880px/s);
+  assert.match(styles, /\.content-section h2\s*{[^}]*font-size:\s*1\.55rem/s);
+  assert.match(styles, /\.person-portrait\s*{[^}]*border-radius:\s*50%/s);
   assert.doesNotMatch(styles, /--color-cyan|#4fe0d0|reveal-pending/);
+});
+
+test('hero typography is restrained rather than poster-sized', () => {
+  assert.match(styles, /\.hero h1\s*{[^}]*font-size:\s*clamp\([^,]+,[^,]+,\s*3\.8rem\)/s);
+  assert.match(styles, /\.hero-layout\s*{[^}]*min-height:\s*620px/s);
 });
 
 test('academic surface uses a pure-white paper system without ivory remnants', () => {
@@ -146,7 +154,7 @@ test('mobile rules protect tables, email, and people from horizontal overflow', 
 });
 
 test('academic lists and small metadata remain visibly accessible', () => {
-  assert.match(styles, /\.topic-index\s*{[^}]*list-style:\s*none/s);
+  assert.match(styles, /\.topic-list-simple[^}]*list-style:\s*disc/s);
   assert.match(styles, /\.person-card small\s*{[^}]*color:\s*var\(--muted\)/s);
   assert.match(styles, /\.site-footer\s*{[^}]*color:\s*var\(--muted\)/s);
 });
