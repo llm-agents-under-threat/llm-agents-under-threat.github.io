@@ -46,6 +46,10 @@ test('GitHub Pages generator emits a complete standalone workshop site', async (
   assert.match(html, /February 22 or 23, 2027/);
   assert.match(html, /November 20, 2026/);
   assert.match(html, /Anywhere on Earth/);
+  assert.match(html, /href="https:\/\/openreview\.net\/group\?id=AAAI\.org\/2027\/Workshop\/LAUT"/);
+  assert.match(html, /Submit on OpenReview/);
+  assert.match(html, /institutional email/);
+  assert.doesNotMatch(html, /Submission instructions will be announced soon/);
 
   const cfpSection = html.match(/<section class="content-section" id="cfp"[\s\S]*?<\/section>/)?.[0] ?? '';
   assert.ok((cfpSection.match(/<p>/g) ?? []).length >= 3, 'CFP should include a substantial introduction and scope lead-in');

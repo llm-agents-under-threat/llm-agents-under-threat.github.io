@@ -83,7 +83,15 @@ test('complete page preserves safe public-contact and asset boundaries', () => {
     assert.match(renderedSources, new RegExp(asset.replace('.', '\\.')));
   }
   assert.equal((data.match(/llm-agents-under-threat@googlegroups\.com/g) ?? []).length, 1);
-  assert.doesNotMatch(renderedSources, /\b(?:openreview|hotcrp)\b|https?:\/\/[^'"\s]*submit|phone|postal address/i);
+  assert.match(data, /https:\/\/openreview\.net\/group\?id=AAAI\.org\/2027\/Workshop\/LAUT/);
+  assert.doesNotMatch(renderedSources, /\bhotcrp\b|phone|postal address/i);
+});
+
+test('submission call to action uses the deployed OpenReview venue', () => {
+  assert.match(page, /href=\{submissionPolicy\.url\}/);
+  assert.match(page, /Submit on OpenReview/);
+  assert.match(renderedSources, /institutional email/);
+  assert.doesNotMatch(renderedSources, /Submission instructions will be announced soon/);
 });
 
 test('complete page renders every accepted-workshop date and schedule record', () => {

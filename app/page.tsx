@@ -112,7 +112,7 @@ export default function Home() {
               </div>
               <div className="deadline-panel">
                 <div><span>{deadline.label}</span><strong>{deadline.value}</strong><small>{deadline.note}</small></div>
-                <a href="#cfp">Read the Call for Papers <ArrowRight aria-hidden="true" /></a>
+                <a href={submissionPolicy.url} target="_blank" rel="noreferrer">Submit on OpenReview <ArrowRight aria-hidden="true" /></a>
               </div>
             </div>
             <figure className="hero-artwork">
@@ -150,8 +150,9 @@ export default function Home() {
 
           <section className="content-section" id="submissions" aria-labelledby="submissions-title">
             <h2 id="submissions-title">Submission Guidelines</h2>
-            <p><strong>Status:</strong> {submissionPolicy.destination}</p>
+            <p><strong>Submission portal:</strong> <a href={submissionPolicy.url} target="_blank" rel="noreferrer">Submit on OpenReview</a>. {submissionPolicy.destination}</p>
             <ul className="guideline-list"><li><strong>Length:</strong> {submissionPolicy.format}</li><li><strong>Format:</strong> {submissionPolicy.style}</li><li><strong>Review:</strong> {submissionPolicy.review}</li><li><strong>Publication:</strong> {submissionPolicy.publication}</li><li><strong>Responsible disclosure:</strong> {submissionPolicy.disclosure}</li></ul>
+            <p className="submission-note">{submissionPolicy.profileNote}</p>
           </section>
 
           <section className="content-section" id="schedule" aria-labelledby="schedule-title">
