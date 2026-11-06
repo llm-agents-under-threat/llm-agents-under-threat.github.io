@@ -107,10 +107,46 @@ export const schedule = [
 ];
 
 export const speakers = [
-  { name: 'Wenyuan Xu', affiliation: 'Zhejiang University', role: 'Keynote 1', initials: 'WX' },
-  { name: 'Bo Li', affiliation: 'University of Chicago', role: 'Keynote 2', initials: 'BL' },
-  { name: 'Nicolas Papernot', affiliation: 'University of Toronto · Vector Institute', role: 'Invited talk 1', initials: 'NP' },
-  { name: 'Niloofar Mireshghallah', affiliation: 'University of Washington', role: 'Invited talk 2', initials: 'NM' },
+  {
+    name: 'Yiwei Lu',
+    affiliation: 'University of Ottawa',
+    role: 'Invited Speaker',
+    url: 'https://www.uottawa.ca/faculty-engineering/school-engineering-design-teaching-innovation/directory/yiwei-lu',
+    image: '/people/yiwei-lu.jpg',
+    imageAvailable: true,
+  },
+  {
+    name: 'Sirisha Rambhatla',
+    affiliation: 'University of Waterloo',
+    role: 'Invited Speaker',
+    url: 'https://sirisharambhatla.com',
+    image: '/people/sirisha-rambhatla.jpg',
+    imageAvailable: true,
+  },
+  {
+    name: 'Irina Rish',
+    affiliation: 'Université de Montréal · Mila',
+    role: 'Invited Speaker',
+    url: 'https://www.irina-rish.com',
+    image: '/people/irina-rish.jpg',
+    imageAvailable: true,
+  },
+  {
+    name: 'David Lie',
+    affiliation: 'University of Toronto',
+    role: 'Invited Speaker',
+    url: 'https://www.ece.utoronto.ca/people/lie-d/',
+    image: '/people/david-lie.jpg',
+    imageAvailable: true,
+  },
+  {
+    name: 'Yue Zhao',
+    affiliation: 'University of Southern California',
+    role: 'Invited Speaker',
+    url: 'https://yuezhao.me/',
+    image: '/people/yue-zhao.jpg',
+    imageAvailable: true,
+  },
 ];
 
 export const organizers = [

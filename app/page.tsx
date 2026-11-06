@@ -10,6 +10,7 @@ import {
   importantDates,
   organizers,
   schedule,
+  speakers,
   submissionPolicy,
   studentOrganizers,
   workshop,
@@ -20,6 +21,7 @@ const primaryLinks = [
   { href: '#cfp', label: 'CFP' },
   { href: '#dates', label: 'Dates' },
   { href: '#schedule', label: 'Program' },
+  { href: '#speakers', label: 'Speakers' },
   { href: '#organizers', label: 'People' },
 ];
 
@@ -27,6 +29,7 @@ type Person = {
   name: string;
   affiliation: string;
   role: string;
+  url?: string;
   image?: string;
   imageAvailable?: boolean;
 };
@@ -45,7 +48,7 @@ function PersonCard({ person, showRole = true }: { person: Person; showRole?: bo
         )}
       </div>
       <div className="person-copy">
-        <h3>{person.name}</h3>
+        <h3>{person.url ? <a href={person.url} target="_blank" rel="noreferrer">{person.name}</a> : person.name}</h3>
         <p>{person.affiliation}</p>
         {showRole ? <small>{person.role}</small> : null}
       </div>
@@ -166,6 +169,7 @@ export default function Home() {
             </tbody></table></div>
           </section>
 
+          <section className="content-section people-section" id="speakers" aria-labelledby="speakers-title"><h2 id="speakers-title">Invited Speakers</h2><div className="people-grid people-grid-speakers">{speakers.map((person) => <PersonCard key={person.name} person={person} />)}</div></section>
           <section className="content-section people-section" id="organizers" aria-labelledby="organizers-title"><h2 id="organizers-title">Workshop Organizers</h2><div className="people-grid">{organizers.map((person) => <PersonCard key={person.name} person={person} />)}</div></section>
           <section className="content-section people-section" id="advisers" aria-labelledby="advisers-title"><h2 id="advisers-title">Advisory Board</h2><div className="people-grid people-grid-secondary">{advisers.map((person) => <PersonCard key={person.name} person={person} showRole={false} />)}</div></section>
           <section className="content-section people-section" id="student-organizers" aria-labelledby="student-organizers-title"><h2 id="student-organizers-title">Student Organizers</h2><div className="people-grid people-grid-secondary">{studentOrganizers.map((person) => <PersonCard key={person.name} person={person} showRole={false} />)}</div></section>

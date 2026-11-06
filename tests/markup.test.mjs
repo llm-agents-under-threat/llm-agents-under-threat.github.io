@@ -31,7 +31,7 @@ test('first viewport states accepted workshop status, date, place, deadline, and
 });
 
 test('academic reading flow exposes the reference-led section order', () => {
-  const ids = ['news', 'about', 'cfp', 'dates', 'submissions', 'schedule', 'organizers', 'advisers', 'student-organizers', 'contact'];
+  const ids = ['news', 'about', 'cfp', 'dates', 'submissions', 'schedule', 'speakers', 'organizers', 'advisers', 'student-organizers', 'contact'];
   let previous = -1;
   for (const id of ids) {
     const position = page.indexOf(`id="${id}"`);
@@ -55,15 +55,17 @@ test('navigation remains keyboard accessible without a reveal dependency', () =>
   assert.doesNotMatch(renderedSources, /initRevealEffects|shouldAnimate/);
 });
 
-test('complete page exposes public sections while invited speakers remain hidden', () => {
-  for (const id of ['dates', 'schedule', 'organizers', 'contact']) {
+test('complete page exposes public sections and confirmed invited speakers', () => {
+  for (const id of ['dates', 'schedule', 'speakers', 'organizers', 'contact']) {
     assert.match(page, new RegExp(`id=["']${id}["']`));
   }
 
-  assert.doesNotMatch(page, /id=["']speakers["']/);
-  assert.doesNotMatch(page, /href=["']#speakers["']/);
+  assert.match(page, /href:\s*["']#speakers["']/);
+  assert.match(page, /Invited Speakers/);
+  assert.match(page, /people-grid people-grid-speakers/);
 
   for (const name of [
+    'Yiwei Lu', 'Sirisha Rambhatla', 'Irina Rish', 'David Lie', 'Yue Zhao',
     'Xinfeng Li', 'Aditi Raghunathan', 'Xinyue Shen', 'Wenbo Pan',
     'Xin Gao', 'Can Shen', 'Xinzuo Wang',
     'Florian Tramèr', 'Neil Gong', 'Virginia Smith', 'Tongliang Liu',
@@ -75,6 +77,7 @@ test('complete page exposes public sections while invited speakers remain hidden
 
 test('complete page preserves safe public-contact and asset boundaries', () => {
   for (const asset of [
+    '/people/yiwei-lu.jpg', '/people/sirisha-rambhatla.jpg', '/people/irina-rish.jpg', '/people/david-lie.jpg', '/people/yue-zhao.jpg',
     '/people/xinfeng-li.png', '/people/aditi-raghunathan.jpg', '/people/xinyue-shen.jpg', '/people/wenbo-pan.jpg',
     '/people/xin-gao.jpg', '/people/can-shen.jpg', '/people/xinzuo-wang.jpg',
     '/people/florian-tramer.jpg', '/people/neil-gong.jpg', '/people/virginia-smith.jpg',
@@ -97,7 +100,7 @@ test('submission call to action uses the deployed OpenReview venue', () => {
 test('complete page renders every accepted-workshop date and schedule record', () => {
   assert.match(page, /importantDates\.map/);
   assert.match(page, /schedule\.map/);
-  assert.doesNotMatch(page, /speakers\.map/);
+  assert.match(page, /speakers\.map/);
   assert.match(page, /organizers\.map/);
   assert.match(page, /studentOrganizers\.map/);
   assert.match(page, /advisers\.map/);

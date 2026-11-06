@@ -7,6 +7,16 @@ Retrieved on 2026-10-06 from organizer-controlled or institutional profile pages
 - Wenbo Pan: personal academic website — https://www.wenbo.io/
 - Xinfeng Li: supplied directly by the workshop team.
 
+# Invited speaker portrait sources
+
+Retrieved on 2026-11-05 from institutional or personal academic profile pages.
+
+- Yiwei Lu: University of Ottawa Faculty of Engineering — https://www.uottawa.ca/faculty-engineering/school-engineering-design-teaching-innovation/directory/yiwei-lu
+- Sirisha Rambhatla: personal academic website — https://sirisharambhatla.com/
+- Irina Rish: Mila directory — https://mila.quebec/en/directory/irina-rish
+- David Lie: University of Toronto Department of Electrical and Computer Engineering — https://www.ece.utoronto.ca/people/lie-d/
+- Yue Zhao: personal academic website — https://yuezhao.me/
+
 # Student organizer portraits
 
 Supplied directly by the workshop team on 2026-10-18.

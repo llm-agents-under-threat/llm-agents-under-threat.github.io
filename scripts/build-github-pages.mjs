@@ -8,6 +8,7 @@ import {
   importantDates,
   organizers,
   schedule,
+  speakers,
   submissionPolicy,
   studentOrganizers,
   workshop,
@@ -27,7 +28,7 @@ const portraitMarkup = (person) => person.imageAvailable && person.image
 const peopleMarkup = (records, { showRoles = true } = {}) => records.map((person) => `
   <article class="person-card">
     <div class="person-portrait">${portraitMarkup(person)}</div>
-    <div class="person-copy"><h3>${escapeHtml(person.name)}</h3><p>${escapeHtml(person.affiliation)}</p>${showRoles ? `<small>${escapeHtml(person.role)}</small>` : ''}</div>
+    <div class="person-copy"><h3>${person.url ? `<a href="${escapeHtml(person.url)}" target="_blank" rel="noreferrer">${escapeHtml(person.name)}</a>` : escapeHtml(person.name)}</h3><p>${escapeHtml(person.affiliation)}</p>${showRoles ? `<small>${escapeHtml(person.role)}</small>` : ''}</div>
   </article>`).join('');
 
 const scheduleRows = schedule.map((item, index) => ({ ...item, session: index < 6 ? 'morning' : 'afternoon' }));
@@ -61,9 +62,9 @@ const html = `<!doctype html>
   <a class="skip-link" href="#main-content">Skip to main content</a>
   <header class="site-header">
     <a class="site-name" href="#top"><span aria-hidden="true">AUT</span><span>Agents Under Threat</span></a>
-    <nav class="desktop-nav" aria-label="Primary navigation"><a href="#about">Overview</a><a href="#cfp">CFP</a><a href="#dates">Dates</a><a href="#schedule">Program</a><a href="#organizers">People</a></nav>
+    <nav class="desktop-nav" aria-label="Primary navigation"><a href="#about">Overview</a><a href="#cfp">CFP</a><a href="#dates">Dates</a><a href="#schedule">Program</a><a href="#speakers">Speakers</a><a href="#organizers">People</a></nav>
     <div class="mobile-controls"><a href="#cfp">CFP</a><button class="menu-button" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="mobile-navigation"><span data-menu-icon aria-hidden="true">☰</span></button></div>
-    <nav id="mobile-navigation" class="mobile-nav" aria-label="Mobile navigation" hidden><a href="#about">Overview</a><a href="#cfp">CFP</a><a href="#dates">Dates</a><a href="#schedule">Program</a><a href="#organizers">People</a><a href="mailto:${escapeHtml(workshop.contact)}">Contact</a></nav>
+    <nav id="mobile-navigation" class="mobile-nav" aria-label="Mobile navigation" hidden><a href="#about">Overview</a><a href="#cfp">CFP</a><a href="#dates">Dates</a><a href="#schedule">Program</a><a href="#speakers">Speakers</a><a href="#organizers">People</a><a href="mailto:${escapeHtml(workshop.contact)}">Contact</a></nav>
   </header>
 
   <main id="main-content">
@@ -94,6 +95,7 @@ const html = `<!doctype html>
 
       <section class="content-section" id="schedule" aria-labelledby="schedule-title"><h2 id="schedule-title">Schedule</h2><p class="section-note">All times are local.</p><div class="schedule-table-wrapper"><table class="schedule-table"><thead class="sr-only"><tr><th scope="col">Time</th><th scope="col">Activity</th></tr></thead><tbody><tr class="session-heading"><th scope="rowgroup" colspan="2">Morning Session</th></tr>${scheduleMarkup('morning')}<tr class="session-heading"><th scope="rowgroup" colspan="2">Afternoon Session</th></tr>${scheduleMarkup('afternoon')}</tbody></table></div></section>
 
+      <section class="content-section people-section" id="speakers" aria-labelledby="speakers-title"><h2 id="speakers-title">Invited Speakers</h2><div class="people-grid people-grid-speakers">${peopleMarkup(speakers)}</div></section>
       <section class="content-section people-section" id="organizers" aria-labelledby="organizers-title"><h2 id="organizers-title">Workshop Organizers</h2><div class="people-grid">${peopleMarkup(organizers)}</div></section>
       <section class="content-section people-section" id="advisers" aria-labelledby="advisers-title"><h2 id="advisers-title">Advisory Board</h2><div class="people-grid people-grid-secondary">${peopleMarkup(advisers, { showRoles: false })}</div></section>
       <section class="content-section people-section" id="student-organizers" aria-labelledby="student-organizers-title"><h2 id="student-organizers-title">Student Organizers</h2><div class="people-grid people-grid-secondary">${peopleMarkup(studentOrganizers, { showRoles: false })}</div></section>
@@ -120,7 +122,7 @@ await Promise.all([
   writeFile(resolve(outputDirectory, 'styles.css'), standaloneStyles),
   writeFile(resolve(outputDirectory, 'menu.js'), menuScript),
   copyFile(resolve(projectRoot, 'public/agent-threat-surface.png'), resolve(outputDirectory, 'agent-threat-surface.png')),
-  ...['xinfeng-li.png', 'aditi-raghunathan.jpg', 'xinyue-shen.jpg', 'wenbo-pan.jpg', 'xin-gao.jpg', 'can-shen.jpg', 'xinzuo-wang.jpg', 'florian-tramer.jpg', 'neil-gong.jpg', 'virginia-smith.jpg', 'tongliang-liu.jpg', 'z-jane-wang.jpg', 'junhao-dong.jpg'].map((file) => copyFile(resolve(projectRoot, 'public', 'people', file), resolve(outputDirectory, 'people', file))),
+  ...['yiwei-lu.jpg', 'sirisha-rambhatla.jpg', 'irina-rish.jpg', 'david-lie.jpg', 'yue-zhao.jpg', 'xinfeng-li.png', 'aditi-raghunathan.jpg', 'xinyue-shen.jpg', 'wenbo-pan.jpg', 'xin-gao.jpg', 'can-shen.jpg', 'xinzuo-wang.jpg', 'florian-tramer.jpg', 'neil-gong.jpg', 'virginia-smith.jpg', 'tongliang-liu.jpg', 'z-jane-wang.jpg', 'junhao-dong.jpg'].map((file) => copyFile(resolve(projectRoot, 'public', 'people', file), resolve(outputDirectory, 'people', file))),
   copyFile(resolve(projectRoot, 'public/favicon.svg'), resolve(outputDirectory, 'favicon.svg')),
   writeFile(resolve(outputDirectory, '.nojekyll'), ''),
 ]);

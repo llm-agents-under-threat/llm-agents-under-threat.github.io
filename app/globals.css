@@ -155,6 +155,8 @@ section[id] { scroll-margin-top: calc(var(--nav-height) + 24px); }
 .person-portrait img { object-fit: cover; object-position: center 30%; filter: saturate(.82) contrast(1.02); }
 .person-copy { padding-top: .1rem; border-top: 1px solid var(--rule); }
 .person-card h3 { margin: .55rem 0 .2rem; color: var(--ink); font-family: var(--editorial); font-size: 1.12rem; font-weight: 600; line-height: 1.25; }
+.person-card h3 a { color: inherit; text-decoration-color: color-mix(in srgb, currentColor 35%, transparent); text-decoration-thickness: 1px; text-underline-offset: .18em; }
+.person-card h3 a:hover, .person-card h3 a:focus-visible { text-decoration-color: currentColor; }
 .person-card p { margin: 0 0 .18rem; color: var(--muted); font-size: .78rem; line-height: 1.45; overflow-wrap: anywhere; }
 .person-card small { display: block; color: var(--muted); font-size: .69rem; line-height: 1.45; }
 
@@ -300,6 +302,7 @@ section[id] { scroll-margin-top: calc(var(--nav-height) + 24px); }
 
 .people-section + .people-section { padding-top: 3.4rem; }
 .people-grid { gap: 2.1rem 1.5rem; padding-top: .6rem; }
+.people-grid-speakers { grid-template-columns: repeat(5, minmax(0, 1fr)); }
 .people-grid-secondary { gap: 2.4rem 2rem; }
 .person-card { text-align: center; }
 .person-portrait { width: min(100%, 164px); aspect-ratio: 1; margin: 0 auto 1rem; border-radius: 50%; font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif; font-size: 2rem; font-weight: 650; }

@@ -34,7 +34,19 @@ test('accepted workshop content has the exact public workshop contract', () => {
   assert.match(cfpTopics.find(({ number }) => number === '09')?.text ?? '', /security, utility, availability, and performance metrics/);
   assert.equal(importantDates.length, 3);
   assert.equal(schedule.length, 13);
-  assert.equal(speakers.length, 4);
+  assert.equal(speakers.length, 5);
+  assert.deepEqual(
+    speakers.map(({ name, affiliation, role }) => ({ name, affiliation, role })),
+    [
+      { name: 'Yiwei Lu', affiliation: 'University of Ottawa', role: 'Invited Speaker' },
+      { name: 'Sirisha Rambhatla', affiliation: 'University of Waterloo', role: 'Invited Speaker' },
+      { name: 'Irina Rish', affiliation: 'Université de Montréal · Mila', role: 'Invited Speaker' },
+      { name: 'David Lie', affiliation: 'University of Toronto', role: 'Invited Speaker' },
+      { name: 'Yue Zhao', affiliation: 'University of Southern California', role: 'Invited Speaker' },
+    ],
+  );
+  assert.ok(speakers.every((speaker) => speaker.url?.startsWith('https://')));
+  assert.ok(speakers.every((speaker) => speaker.imageAvailable && speaker.image));
   assert.equal(organizers.length, 4);
   assert.ok(organizers.every((organizer) => organizer.imageAvailable && organizer.image));
   assert.equal(organizers.find(({ name }) => name === 'Xinfeng Li')?.role, 'General Chair');
@@ -104,9 +116,10 @@ test('render helpers escape content and preserve semantic labels', () => {
   assert.doesNotMatch(scheduleMarkup, /Tentative/i);
 
   const peopleMarkup = renderPeople([
-    { name: 'A. Researcher', affiliation: 'Example University', role: 'Program Chair' },
+    { name: 'A. Researcher', affiliation: 'Example University', role: 'Program Chair', url: 'https://example.com/?a=1&b=2' },
   ], 'organizer');
   assert.match(peopleMarkup, /data-kind="organizer"/);
   assert.match(peopleMarkup, /Program Chair/);
+  assert.match(peopleMarkup, /href="https:\/\/example\.com\/\?a=1&amp;b=2"/);
   assert.doesNotMatch(peopleMarkup, /Tentative/i);
 });

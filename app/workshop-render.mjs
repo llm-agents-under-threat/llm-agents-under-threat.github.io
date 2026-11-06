@@ -33,12 +33,15 @@ export function renderSchedule(records) {
 
 export function renderPeople(records, kind) {
   return records
-    .map(
-      (record) => `<article class="person-card" data-kind="${escapeHtml(kind)}">
-  <h3>${escapeHtml(record.name)}</h3>
+    .map((record) => {
+      const name = record.url
+        ? `<a href="${escapeHtml(record.url)}" target="_blank" rel="noreferrer">${escapeHtml(record.name)}</a>`
+        : escapeHtml(record.name);
+      return `<article class="person-card" data-kind="${escapeHtml(kind)}">
+  <h3>${name}</h3>
   <p>${escapeHtml(record.affiliation)}</p>
   <span>${escapeHtml(record.role)}</span>
-</article>`,
-    )
+</article>`;
+    })
     .join('');
 }
