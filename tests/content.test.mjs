@@ -8,6 +8,7 @@ import {
   organizers,
   researchQuestions,
   schedule,
+  speakerListingNote,
   speakers,
   studentOrganizers,
   workshop,
@@ -38,13 +39,15 @@ test('accepted workshop content has the exact public workshop contract', () => {
   assert.deepEqual(
     speakers.map(({ name, affiliation, role }) => ({ name, affiliation, role })),
     [
+      { name: 'David Lie', affiliation: 'University of Toronto', role: 'Invited Speaker' },
       { name: 'Yiwei Lu', affiliation: 'University of Ottawa', role: 'Invited Speaker' },
       { name: 'Sirisha Rambhatla', affiliation: 'University of Waterloo', role: 'Invited Speaker' },
       { name: 'Irina Rish', affiliation: 'Université de Montréal · Mila', role: 'Invited Speaker' },
-      { name: 'David Lie', affiliation: 'University of Toronto', role: 'Invited Speaker' },
       { name: 'Yue Zhao', affiliation: 'University of Southern California', role: 'Invited Speaker' },
     ],
   );
+  assert.deepEqual(speakers.map(({ lastName }) => lastName), ['Lie', 'Lu', 'Rambhatla', 'Rish', 'Zhao']);
+  assert.equal(speakerListingNote, 'Listed alphabetically by last name.');
   assert.ok(speakers.every((speaker) => speaker.url?.startsWith('https://')));
   assert.ok(speakers.every((speaker) => speaker.imageAvailable && speaker.image));
   assert.equal(organizers.length, 4);

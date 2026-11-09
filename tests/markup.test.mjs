@@ -62,6 +62,7 @@ test('complete page exposes public sections and confirmed invited speakers', () 
 
   assert.match(page, /href:\s*["']#speakers["']/);
   assert.match(page, /Invited Speakers/);
+  assert.match(page, /speakerListingNote/);
   assert.match(page, /people-grid people-grid-speakers/);
 
   for (const name of [

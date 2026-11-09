@@ -106,9 +106,19 @@ export const schedule = [
   { time: '17:10–17:15', title: 'Closing remarks & award', type: 'Closing' },
 ];
 
-export const speakers = [
+const speakerRecords = [
+  {
+    name: 'David Lie',
+    lastName: 'Lie',
+    affiliation: 'University of Toronto',
+    role: 'Invited Speaker',
+    url: 'https://www.ece.utoronto.ca/people/lie-d/',
+    image: '/people/david-lie.jpg',
+    imageAvailable: true,
+  },
   {
     name: 'Yiwei Lu',
+    lastName: 'Lu',
     affiliation: 'University of Ottawa',
     role: 'Invited Speaker',
     url: 'https://www.uottawa.ca/faculty-engineering/school-engineering-design-teaching-innovation/directory/yiwei-lu',
@@ -117,6 +127,7 @@ export const speakers = [
   },
   {
     name: 'Sirisha Rambhatla',
+    lastName: 'Rambhatla',
     affiliation: 'University of Waterloo',
     role: 'Invited Speaker',
     url: 'https://sirisharambhatla.com',
@@ -125,6 +136,7 @@ export const speakers = [
   },
   {
     name: 'Irina Rish',
+    lastName: 'Rish',
     affiliation: 'Université de Montréal · Mila',
     role: 'Invited Speaker',
     url: 'https://www.irina-rish.com',
@@ -132,15 +144,8 @@ export const speakers = [
     imageAvailable: true,
   },
   {
-    name: 'David Lie',
-    affiliation: 'University of Toronto',
-    role: 'Invited Speaker',
-    url: 'https://www.ece.utoronto.ca/people/lie-d/',
-    image: '/people/david-lie.jpg',
-    imageAvailable: true,
-  },
-  {
     name: 'Yue Zhao',
+    lastName: 'Zhao',
     affiliation: 'University of Southern California',
     role: 'Invited Speaker',
     url: 'https://yuezhao.me/',
@@ -148,6 +153,12 @@ export const speakers = [
     imageAvailable: true,
   },
 ];
+
+export const speakers = speakerRecords.toSorted((left, right) =>
+  left.lastName.localeCompare(right.lastName, 'en') || left.name.localeCompare(right.name, 'en'),
+);
+
+export const speakerListingNote = 'Listed alphabetically by last name.';
 
 export const organizers = [
   { name: 'Xinfeng Li', affiliation: 'The Hong Kong Polytechnic University', role: 'General Chair', image: '/people/xinfeng-li.png', imageAvailable: true },
