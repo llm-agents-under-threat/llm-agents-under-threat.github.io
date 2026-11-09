@@ -6,9 +6,9 @@ import {
   advisers,
   cfpTopics,
   importantDates,
+  lastNameListingNote,
   organizers,
   schedule,
-  speakerListingNote,
   speakers,
   submissionPolicy,
   studentOrganizers,
@@ -96,9 +96,9 @@ const html = `<!doctype html>
 
       <section class="content-section" id="schedule" aria-labelledby="schedule-title"><h2 id="schedule-title">Schedule</h2><p class="section-note">All times are local.</p><div class="schedule-table-wrapper"><table class="schedule-table"><thead class="sr-only"><tr><th scope="col">Time</th><th scope="col">Activity</th></tr></thead><tbody><tr class="session-heading"><th scope="rowgroup" colspan="2">Morning Session</th></tr>${scheduleMarkup('morning')}<tr class="session-heading"><th scope="rowgroup" colspan="2">Afternoon Session</th></tr>${scheduleMarkup('afternoon')}</tbody></table></div></section>
 
-      <section class="content-section people-section" id="speakers" aria-labelledby="speakers-title"><h2 id="speakers-title">Invited Speakers</h2><p class="section-note speaker-sort-note">${escapeHtml(speakerListingNote)}</p><div class="people-grid people-grid-speakers">${peopleMarkup(speakers)}</div></section>
-      <section class="content-section people-section" id="organizers" aria-labelledby="organizers-title"><h2 id="organizers-title">Workshop Organizers</h2><div class="people-grid">${peopleMarkup(organizers)}</div></section>
-      <section class="content-section people-section" id="advisers" aria-labelledby="advisers-title"><h2 id="advisers-title">Advisory Board</h2><div class="people-grid people-grid-secondary">${peopleMarkup(advisers, { showRoles: false })}</div></section>
+      <section class="content-section people-section" id="speakers" aria-labelledby="speakers-title"><h2 id="speakers-title">Invited Speakers</h2><p class="section-note last-name-sort-note">${escapeHtml(lastNameListingNote)}</p><div class="people-grid people-grid-speakers">${peopleMarkup(speakers)}</div></section>
+      <section class="content-section people-section" id="organizers" aria-labelledby="organizers-title"><h2 id="organizers-title">Workshop Organizers</h2><p class="section-note last-name-sort-note">${escapeHtml(lastNameListingNote)}</p><div class="people-grid">${peopleMarkup(organizers)}</div></section>
+      <section class="content-section people-section" id="advisers" aria-labelledby="advisers-title"><h2 id="advisers-title">Advisory Board</h2><p class="section-note last-name-sort-note">${escapeHtml(lastNameListingNote)}</p><div class="people-grid people-grid-secondary">${peopleMarkup(advisers, { showRoles: false })}</div></section>
       <section class="content-section people-section" id="student-organizers" aria-labelledby="student-organizers-title"><h2 id="student-organizers-title">Student Organizers</h2><div class="people-grid people-grid-secondary">${peopleMarkup(studentOrganizers, { showRoles: false })}</div></section>
 
       <section class="content-section contact-section" id="contact" aria-labelledby="contact-title"><h2 id="contact-title">Contact</h2><p>Questions about scope or fit can be sent to <a href="mailto:${escapeHtml(workshop.contact)}">${escapeHtml(workshop.contact)}</a>.</p></section>

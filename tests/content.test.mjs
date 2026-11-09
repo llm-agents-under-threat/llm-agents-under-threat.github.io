@@ -5,10 +5,10 @@ import {
   advisers,
   cfpTopics,
   importantDates,
+  lastNameListingNote,
   organizers,
   researchQuestions,
   schedule,
-  speakerListingNote,
   speakers,
   studentOrganizers,
   workshop,
@@ -47,17 +47,20 @@ test('accepted workshop content has the exact public workshop contract', () => {
     ],
   );
   assert.deepEqual(speakers.map(({ lastName }) => lastName), ['Lie', 'Lu', 'Rambhatla', 'Rish', 'Zhao']);
-  assert.equal(speakerListingNote, 'Listed alphabetically by last name.');
+  assert.equal(lastNameListingNote, 'Listed alphabetically by last name.');
   assert.ok(speakers.every((speaker) => speaker.url?.startsWith('https://')));
   assert.ok(speakers.every((speaker) => speaker.imageAvailable && speaker.image));
   assert.equal(organizers.length, 4);
+  assert.deepEqual(organizers.map(({ lastName }) => lastName), ['Li', 'Pan', 'Raghunathan', 'Shen']);
   assert.ok(organizers.every((organizer) => organizer.imageAvailable && organizer.image));
   assert.equal(organizers.find(({ name }) => name === 'Xinfeng Li')?.role, 'General Chair');
   assert.equal(organizers.find(({ name }) => name === 'Xinyue Shen')?.role, 'Local Arrangement Chair');
   assert.equal(organizers.find(({ name }) => name === 'Wenbo Pan')?.role, 'Publicity Chair');
   assert.equal(studentOrganizers.length, 3);
+  assert.deepEqual(studentOrganizers.map(({ name }) => name), ['Xin Gao', 'Can Shen', 'Xinzuo Wang']);
   assert.ok(studentOrganizers.every((organizer) => organizer.imageAvailable && organizer.image));
   assert.equal(advisers.length, 6);
+  assert.deepEqual(advisers.map(({ lastName }) => lastName), ['Dong', 'Gong', 'Liu', 'Smith', 'Tramèr', 'Wang']);
   assert.ok(advisers.every((adviser) => adviser.imageAvailable && adviser.image));
 
   const publicContent = JSON.stringify({

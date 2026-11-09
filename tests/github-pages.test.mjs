@@ -62,6 +62,7 @@ test('GitHub Pages generator emits a complete standalone workshop site', async (
   assert.match(html, /href="#speakers"/);
   assert.match(html, /Invited Speakers/);
   assert.match(html, /people-grid people-grid-speakers/);
+  assert.equal((html.match(/Listed alphabetically by last name\./g) ?? []).length, 3);
   for (const [name, url] of [
     ['Yiwei Lu', 'https://www.uottawa.ca/faculty-engineering/school-engineering-design-teaching-innovation/directory/yiwei-lu'],
     ['Sirisha Rambhatla', 'https://sirisharambhatla.com'],

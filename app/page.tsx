@@ -8,9 +8,9 @@ import {
   advisers,
   cfpTopics,
   importantDates,
+  lastNameListingNote,
   organizers,
   schedule,
-  speakerListingNote,
   speakers,
   submissionPolicy,
   studentOrganizers,
@@ -170,9 +170,9 @@ export default function Home() {
             </tbody></table></div>
           </section>
 
-          <section className="content-section people-section" id="speakers" aria-labelledby="speakers-title"><h2 id="speakers-title">Invited Speakers</h2><p className="section-note speaker-sort-note">{speakerListingNote}</p><div className="people-grid people-grid-speakers">{speakers.map((person) => <PersonCard key={person.name} person={person} />)}</div></section>
-          <section className="content-section people-section" id="organizers" aria-labelledby="organizers-title"><h2 id="organizers-title">Workshop Organizers</h2><div className="people-grid">{organizers.map((person) => <PersonCard key={person.name} person={person} />)}</div></section>
-          <section className="content-section people-section" id="advisers" aria-labelledby="advisers-title"><h2 id="advisers-title">Advisory Board</h2><div className="people-grid people-grid-secondary">{advisers.map((person) => <PersonCard key={person.name} person={person} showRole={false} />)}</div></section>
+          <section className="content-section people-section" id="speakers" aria-labelledby="speakers-title"><h2 id="speakers-title">Invited Speakers</h2><p className="section-note last-name-sort-note">{lastNameListingNote}</p><div className="people-grid people-grid-speakers">{speakers.map((person) => <PersonCard key={person.name} person={person} />)}</div></section>
+          <section className="content-section people-section" id="organizers" aria-labelledby="organizers-title"><h2 id="organizers-title">Workshop Organizers</h2><p className="section-note last-name-sort-note">{lastNameListingNote}</p><div className="people-grid">{organizers.map((person) => <PersonCard key={person.name} person={person} />)}</div></section>
+          <section className="content-section people-section" id="advisers" aria-labelledby="advisers-title"><h2 id="advisers-title">Advisory Board</h2><p className="section-note last-name-sort-note">{lastNameListingNote}</p><div className="people-grid people-grid-secondary">{advisers.map((person) => <PersonCard key={person.name} person={person} showRole={false} />)}</div></section>
           <section className="content-section people-section" id="student-organizers" aria-labelledby="student-organizers-title"><h2 id="student-organizers-title">Student Organizers</h2><div className="people-grid people-grid-secondary">{studentOrganizers.map((person) => <PersonCard key={person.name} person={person} showRole={false} />)}</div></section>
 
           <section className="content-section contact-section" id="contact" aria-labelledby="contact-title"><h2 id="contact-title">Contact</h2><p>Questions about scope or fit can be sent to <a href={`mailto:${workshop.contact}`}>{workshop.contact}</a>.</p></section>

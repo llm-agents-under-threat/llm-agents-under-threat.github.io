@@ -106,6 +106,10 @@ export const schedule = [
   { time: '17:10–17:15', title: 'Closing remarks & award', type: 'Closing' },
 ];
 
+const sortByLastName = (records) => records.toSorted((left, right) =>
+  left.lastName.localeCompare(right.lastName, 'en') || left.name.localeCompare(right.name, 'en'),
+);
+
 const speakerRecords = [
   {
     name: 'David Lie',
@@ -154,18 +158,18 @@ const speakerRecords = [
   },
 ];
 
-export const speakers = speakerRecords.toSorted((left, right) =>
-  left.lastName.localeCompare(right.lastName, 'en') || left.name.localeCompare(right.name, 'en'),
-);
+export const speakers = sortByLastName(speakerRecords);
 
-export const speakerListingNote = 'Listed alphabetically by last name.';
+export const lastNameListingNote = 'Listed alphabetically by last name.';
 
-export const organizers = [
-  { name: 'Xinfeng Li', affiliation: 'The Hong Kong Polytechnic University', role: 'General Chair', image: '/people/xinfeng-li.png', imageAvailable: true },
-  { name: 'Aditi Raghunathan', affiliation: 'Carnegie Mellon University', role: 'Program Chair', image: '/people/aditi-raghunathan.jpg', imageAvailable: true },
-  { name: 'Xinyue Shen', affiliation: 'University of Waterloo', role: 'Local Arrangement Chair', image: '/people/xinyue-shen.jpg', imageAvailable: true },
-  { name: 'Wenbo Pan', affiliation: 'City University of Hong Kong', role: 'Publicity Chair', image: '/people/wenbo-pan.jpg', imageAvailable: true },
+const organizerRecords = [
+  { name: 'Xinfeng Li', lastName: 'Li', affiliation: 'The Hong Kong Polytechnic University', role: 'General Chair', image: '/people/xinfeng-li.png', imageAvailable: true },
+  { name: 'Wenbo Pan', lastName: 'Pan', affiliation: 'City University of Hong Kong', role: 'Publicity Chair', image: '/people/wenbo-pan.jpg', imageAvailable: true },
+  { name: 'Aditi Raghunathan', lastName: 'Raghunathan', affiliation: 'Carnegie Mellon University', role: 'Program Chair', image: '/people/aditi-raghunathan.jpg', imageAvailable: true },
+  { name: 'Xinyue Shen', lastName: 'Shen', affiliation: 'University of Waterloo', role: 'Local Arrangement Chair', image: '/people/xinyue-shen.jpg', imageAvailable: true },
 ];
+
+export const organizers = sortByLastName(organizerRecords);
 
 export const studentOrganizers = [
   { name: 'Xin Gao', affiliation: 'Tokyo University of Science', role: 'Student Organizer', image: '/people/xin-gao.jpg', imageAvailable: true },
@@ -173,14 +177,16 @@ export const studentOrganizers = [
   { name: 'Xinzuo Wang', affiliation: 'University of Electronic Science and Technology of China', role: 'Student Organizer', image: '/people/xinzuo-wang.jpg', imageAvailable: true },
 ];
 
-export const advisers = [
-  { name: 'Florian Tramèr', affiliation: 'ETH Zürich', role: 'Advisory Board', image: '/people/florian-tramer.jpg', imageAvailable: true },
-  { name: 'Neil Gong', affiliation: 'Duke University', role: 'Advisory Board', image: '/people/neil-gong.jpg', imageAvailable: true },
-  { name: 'Virginia Smith', affiliation: 'Carnegie Mellon University', role: 'Advisory Board', image: '/people/virginia-smith.jpg', imageAvailable: true },
-  { name: 'Tongliang Liu', affiliation: 'The University of Sydney', role: 'Advisory Board', image: '/people/tongliang-liu.jpg', imageAvailable: true },
-  { name: 'Z. Jane Wang', affiliation: 'The University of British Columbia', role: 'Advisory Board', image: '/people/z-jane-wang.jpg', imageAvailable: true },
-  { name: 'Junhao Dong', affiliation: 'Nanyang Technological University', role: 'Advisory Board', image: '/people/junhao-dong.jpg', imageAvailable: true },
+const adviserRecords = [
+  { name: 'Junhao Dong', lastName: 'Dong', affiliation: 'Nanyang Technological University', role: 'Advisory Board', image: '/people/junhao-dong.jpg', imageAvailable: true },
+  { name: 'Neil Gong', lastName: 'Gong', affiliation: 'Duke University', role: 'Advisory Board', image: '/people/neil-gong.jpg', imageAvailable: true },
+  { name: 'Tongliang Liu', lastName: 'Liu', affiliation: 'The University of Sydney', role: 'Advisory Board', image: '/people/tongliang-liu.jpg', imageAvailable: true },
+  { name: 'Virginia Smith', lastName: 'Smith', affiliation: 'Carnegie Mellon University', role: 'Advisory Board', image: '/people/virginia-smith.jpg', imageAvailable: true },
+  { name: 'Florian Tramèr', lastName: 'Tramèr', affiliation: 'ETH Zürich', role: 'Advisory Board', image: '/people/florian-tramer.jpg', imageAvailable: true },
+  { name: 'Z. Jane Wang', lastName: 'Wang', affiliation: 'The University of British Columbia', role: 'Advisory Board', image: '/people/z-jane-wang.jpg', imageAvailable: true },
 ];
+
+export const advisers = sortByLastName(adviserRecords);
 
 export const submissionPolicy = {
   url: 'https://openreview.net/group?id=AAAI.org/2027/Workshop/LAUT',

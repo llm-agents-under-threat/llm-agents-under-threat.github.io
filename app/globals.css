@@ -301,7 +301,7 @@ section[id] { scroll-margin-top: calc(var(--nav-height) + 24px); }
 .session-heading th { padding: 1.2rem .85rem .45rem; color: var(--ink); font-size: 1.02rem; font-weight: 650; letter-spacing: 0; text-transform: none; }
 
 .people-section + .people-section { padding-top: 3.4rem; }
-.people-section .speaker-sort-note { margin: -.65rem 0 .55rem; color: var(--muted); font-size: .82rem; }
+.people-section .last-name-sort-note { margin: -.65rem 0 .55rem; color: var(--muted); font-size: .82rem; }
 .people-grid { gap: 2.1rem 1.5rem; padding-top: .6rem; }
 .people-grid-speakers { grid-template-columns: repeat(5, minmax(0, 1fr)); }
 .people-grid-secondary { gap: 2.4rem 2rem; }
