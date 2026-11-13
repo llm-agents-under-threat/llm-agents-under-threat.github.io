@@ -10,6 +10,7 @@ import {
   researchQuestions,
   schedule,
   speakers,
+  submissionPolicy,
   studentOrganizers,
   workshop,
 } from '../app/workshop-data.mjs';
@@ -26,6 +27,7 @@ test('accepted workshop content has the exact public workshop contract', () => {
   assert.equal(workshop.location, 'Montréal, Canada');
   assert.equal(workshop.date, 'February 22 or 23, 2027');
   assert.equal(workshop.contact, 'llm-agents-under-threat@googlegroups.com');
+  assert.match(submissionPolicy.review, /^Double-blind,/);
   assert.equal(researchQuestions.length, 3);
   assert.equal(cfpTopics.length, 10);
   assert.match(cfpTopics.find(({ number }) => number === '05')?.text ?? '', /unauthorized actions and resource abuse/);

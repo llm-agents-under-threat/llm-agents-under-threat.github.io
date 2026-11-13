@@ -192,7 +192,7 @@ export const submissionPolicy = {
   url: 'https://openreview.net/group?id=AAAI.org/2027/Workshop/LAUT',
   format: 'Full papers up to 7 pages, excluding references. Shorter papers are welcome.',
   style: 'AAAI two-column format.',
-  review: 'Single-blind, with at least two reviews and a third review for borderline submissions.',
+  review: 'Double-blind, with at least two reviews and a third review for borderline submissions.',
   publication: 'Non-archival. Authors retain the ability to submit expanded work elsewhere.',
   disclosure: 'Responsible disclosure is expected for work involving real systems or vulnerabilities.',
   destination: 'Submissions are handled through OpenReview.',
