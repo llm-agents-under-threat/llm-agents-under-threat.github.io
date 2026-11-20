@@ -44,7 +44,7 @@ test('GitHub Pages generator emits a complete standalone workshop site', async (
   assert.match(html, /class="reading-column"/);
   assert.match(html, /class="topic-list-simple"/);
   assert.match(html, /February 22 or 23, 2027/);
-  assert.match(html, /November 20, 2026/);
+  assert.match(html, /November 27, 2026/);
   assert.match(html, /Anywhere on Earth/);
   assert.match(html, /href="https:\/\/openreview\.net\/group\?id=AAAI\.org\/2027\/Workshop\/LAUT"/);
   assert.match(html, /Submit on OpenReview/);

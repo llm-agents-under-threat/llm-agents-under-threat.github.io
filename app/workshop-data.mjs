@@ -85,7 +85,7 @@ export const cfpTopics = [
 ];
 
 export const importantDates = [
-  { label: 'Submission deadline', value: 'November 20, 2026', note: 'Anywhere on Earth' },
+  { label: 'Submission deadline', value: 'November 27, 2026', note: 'Anywhere on Earth' },
   { label: 'Acceptance notification', value: 'December 2, 2026', note: 'Author notification' },
   { label: 'Workshop', value: 'February 22 or 23, 2027', note: 'In person · Montréal' },
 ];

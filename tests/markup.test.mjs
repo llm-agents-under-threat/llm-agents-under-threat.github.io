@@ -22,7 +22,7 @@ test('first viewport states accepted workshop status, date, place, deadline, and
   assert.match(page, /accepted for AAAI-27/);
   assert.match(renderedSources, /February 22 or 23, 2027/);
   assert.match(renderedSources, /Montréal, Canada/);
-  assert.match(renderedSources, /November 20, 2026/);
+  assert.match(renderedSources, /November 27, 2026/);
   assert.match(page, /\/agent-threat-surface\.png/);
   for (const className of ['hero-folio', 'hero-copy', 'hero-artwork', 'deadline-panel']) {
     assert.match(page, new RegExp(`className="[^"]*${className}`));

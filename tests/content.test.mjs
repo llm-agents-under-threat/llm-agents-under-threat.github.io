@@ -112,7 +112,7 @@ test('render helpers escape content and preserve semantic labels', () => {
   assert.equal(escapeHtml('<script>"x" & y</script>'), '&lt;script&gt;&quot;x&quot; &amp; y&lt;/script&gt;');
 
   const datesMarkup = renderDates([
-    { label: '<Deadline>', value: 'Nov 20', note: 'Anywhere on Earth' },
+    { label: '<Deadline>', value: 'Nov 27', note: 'Anywhere on Earth' },
   ]);
   assert.match(datesMarkup, /&lt;Deadline&gt;/);
   assert.doesNotMatch(datesMarkup, /Tentative/i);
