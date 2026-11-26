@@ -35,7 +35,16 @@ test('accepted workshop content has the exact public workshop contract', () => {
   assert.match(cfpTopics.find(({ number }) => number === '07')?.text ?? '', /resource controls/);
   assert.match(cfpTopics.find(({ number }) => number === '09')?.text ?? '', /adaptive red teaming/);
   assert.match(cfpTopics.find(({ number }) => number === '09')?.text ?? '', /security, utility, availability, and performance metrics/);
-  assert.equal(importantDates.length, 3);
+  assert.deepEqual(importantDates, [
+    { label: 'Submission deadline', value: 'November 27, 2026', note: 'Anywhere on Earth' },
+    { label: 'Official reviews open', value: 'December 16, 2026', note: '08:59 JST · 07:59 Beijing · December 15, 18:59 Montréal (EST)' },
+    { label: 'Official review deadline', value: 'December 26, 2026', note: '20:59 JST · 19:59 Beijing · 06:59 Montréal (EST)' },
+    { label: 'Review form closes', value: 'December 26, 2026', note: '21:29 JST · 30-minute grace period' },
+    { label: 'Author rebuttal', value: 'December 30, 2026 – January 6, 2027', note: 'Author response period' },
+    { label: 'Decision release', value: 'January 7, 2027', note: 'Visible to authors and reviewers' },
+    { label: 'Author email notification', value: 'January 9, 2027', note: 'Acceptance and rejection notices' },
+    { label: 'Workshop', value: 'February 22 or 23, 2027', note: 'In person · Montréal' },
+  ]);
   assert.equal(schedule.length, 13);
   assert.equal(speakers.length, 5);
   assert.deepEqual(

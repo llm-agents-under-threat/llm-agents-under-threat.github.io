@@ -86,7 +86,12 @@ export const cfpTopics = [
 
 export const importantDates = [
   { label: 'Submission deadline', value: 'November 27, 2026', note: 'Anywhere on Earth' },
-  { label: 'Acceptance notification', value: 'December 2, 2026', note: 'Author notification' },
+  { label: 'Official reviews open', value: 'December 16, 2026', note: '08:59 JST · 07:59 Beijing · December 15, 18:59 Montréal (EST)' },
+  { label: 'Official review deadline', value: 'December 26, 2026', note: '20:59 JST · 19:59 Beijing · 06:59 Montréal (EST)' },
+  { label: 'Review form closes', value: 'December 26, 2026', note: '21:29 JST · 30-minute grace period' },
+  { label: 'Author rebuttal', value: 'December 30, 2026 – January 6, 2027', note: 'Author response period' },
+  { label: 'Decision release', value: 'January 7, 2027', note: 'Visible to authors and reviewers' },
+  { label: 'Author email notification', value: 'January 9, 2027', note: 'Acceptance and rejection notices' },
   { label: 'Workshop', value: 'February 22 or 23, 2027', note: 'In person · Montréal' },
 ];
 
