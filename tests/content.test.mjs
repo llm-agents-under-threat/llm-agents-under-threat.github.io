@@ -36,13 +36,12 @@ test('accepted workshop content has the exact public workshop contract', () => {
   assert.match(cfpTopics.find(({ number }) => number === '09')?.text ?? '', /adaptive red teaming/);
   assert.match(cfpTopics.find(({ number }) => number === '09')?.text ?? '', /security, utility, availability, and performance metrics/);
   assert.deepEqual(importantDates, [
-    { label: 'Submission deadline', value: 'November 27, 2026', note: 'Anywhere on Earth' },
-    { label: 'Official reviews open', value: 'December 16, 2026', note: '08:59 JST · 07:59 Beijing · December 15, 18:59 Montréal (EST)' },
-    { label: 'Official review deadline', value: 'December 26, 2026', note: '20:59 JST · 19:59 Beijing · 06:59 Montréal (EST)' },
-    { label: 'Review form closes', value: 'December 26, 2026', note: '21:29 JST · 30-minute grace period' },
-    { label: 'Author rebuttal', value: 'December 30, 2026 – January 6, 2027', note: 'Author response period' },
-    { label: 'Decision release', value: 'January 7, 2027', note: 'Visible to authors and reviewers' },
-    { label: 'Author email notification', value: 'January 9, 2027', note: 'Acceptance and rejection notices' },
+    { label: 'Submission deadline', value: 'November 27, 2026', note: '23:59 AoE · November 28, 20:59 JST · 19:59 Beijing · 06:59 Montréal (EST)' },
+    { label: 'Format check and reviewer assignment', value: 'November 29, 2026', note: 'Completed by 23:59 AoE' },
+    { label: 'Official review period', value: 'November 30 – December 13, 2026', note: 'Two full weeks · Anywhere on Earth' },
+    { label: 'Borderline-paper third reviews and reviewer discussion', value: 'December 14, 2026', note: 'Internal review discussion · Anywhere on Earth' },
+    { label: 'Program Chair decisions', value: 'December 15, 2026', note: 'Anywhere on Earth' },
+    { label: 'Author notification', value: 'December 15, 2026', note: 'No later than December 16' },
     { label: 'Workshop', value: 'February 22 or 23, 2027', note: 'In person · Montréal' },
   ]);
   assert.equal(schedule.length, 13);
