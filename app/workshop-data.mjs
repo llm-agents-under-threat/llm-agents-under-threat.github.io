@@ -179,6 +179,7 @@ export const studentOrganizers = [
   { name: 'Xin Gao', affiliation: 'Tokyo University of Science', role: 'Student Organizer', image: '/people/xin-gao.jpg', imageAvailable: true },
   { name: 'Can Shen', affiliation: 'The Hong Kong Polytechnic University', role: 'Student Organizer', image: '/people/can-shen.jpg', imageAvailable: true },
   { name: 'Xinzuo Wang', affiliation: 'University of Electronic Science and Technology of China', role: 'Student Organizer', image: '/people/xinzuo-wang.jpg', imageAvailable: true },
+  { name: 'Haochen Shi', affiliation: 'Université de Montréal · Mila', role: 'Student Organizer', image: '/people/haochen-shi.jpg', imageAvailable: true },
 ];
 
 const adviserRecords = [

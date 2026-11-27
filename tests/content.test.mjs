@@ -66,8 +66,8 @@ test('accepted workshop content has the exact public workshop contract', () => {
   assert.equal(organizers.find(({ name }) => name === 'Xinfeng Li')?.role, 'General Chair');
   assert.equal(organizers.find(({ name }) => name === 'Xinyue Shen')?.role, 'Local Arrangement Chair');
   assert.equal(organizers.find(({ name }) => name === 'Wenbo Pan')?.role, 'Publicity Chair');
-  assert.equal(studentOrganizers.length, 3);
-  assert.deepEqual(studentOrganizers.map(({ name }) => name), ['Xin Gao', 'Can Shen', 'Xinzuo Wang']);
+  assert.equal(studentOrganizers.length, 4);
+  assert.deepEqual(studentOrganizers.map(({ name }) => name), ['Xin Gao', 'Can Shen', 'Xinzuo Wang', 'Haochen Shi']);
   assert.ok(studentOrganizers.every((organizer) => organizer.imageAvailable && organizer.image));
   assert.equal(advisers.length, 6);
   assert.deepEqual(advisers.map(({ lastName }) => lastName), ['Dong', 'Gong', 'Liu', 'Smith', 'Tramèr', 'Wang']);

@@ -19,6 +19,12 @@ import { escapeHtml } from '../app/workshop-render.mjs';
 const outputDirectory = resolve(process.argv[2] ?? 'dist-pages');
 const projectRoot = resolve(import.meta.dirname, '..');
 const deadline = importantDates[0];
+const peopleImageFiles = [...new Set(
+  [speakers, organizers, advisers, studentOrganizers]
+    .flat()
+    .filter((person) => person.imageAvailable && person.image?.startsWith('/people/'))
+    .map((person) => person.image.slice('/people/'.length)),
+)];
 
 const initials = (name) => name.split(' ').filter(Boolean).map((part) => part[0]).join('').slice(0, 2).toUpperCase();
 
@@ -123,7 +129,7 @@ await Promise.all([
   writeFile(resolve(outputDirectory, 'styles.css'), standaloneStyles),
   writeFile(resolve(outputDirectory, 'menu.js'), menuScript),
   copyFile(resolve(projectRoot, 'public/agent-threat-surface.png'), resolve(outputDirectory, 'agent-threat-surface.png')),
-  ...['yiwei-lu.jpg', 'sirisha-rambhatla.jpg', 'irina-rish.jpg', 'david-lie.jpg', 'yue-zhao.jpg', 'xinfeng-li.png', 'aditi-raghunathan.jpg', 'xinyue-shen.jpg', 'wenbo-pan.jpg', 'xin-gao.jpg', 'can-shen.jpg', 'xinzuo-wang.jpg', 'florian-tramer.jpg', 'neil-gong.jpg', 'virginia-smith.jpg', 'tongliang-liu.jpg', 'z-jane-wang.jpg', 'junhao-dong.jpg'].map((file) => copyFile(resolve(projectRoot, 'public', 'people', file), resolve(outputDirectory, 'people', file))),
+  ...peopleImageFiles.map((file) => copyFile(resolve(projectRoot, 'public', 'people', file), resolve(outputDirectory, 'people', file))),
   copyFile(resolve(projectRoot, 'public/favicon.svg'), resolve(outputDirectory, 'favicon.svg')),
   writeFile(resolve(outputDirectory, '.nojekyll'), ''),
 ]);

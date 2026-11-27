@@ -68,7 +68,7 @@ test('complete page exposes public sections and confirmed invited speakers', () 
   for (const name of [
     'Yiwei Lu', 'Sirisha Rambhatla', 'Irina Rish', 'David Lie', 'Yue Zhao',
     'Xinfeng Li', 'Aditi Raghunathan', 'Xinyue Shen', 'Wenbo Pan',
-    'Xin Gao', 'Can Shen', 'Xinzuo Wang',
+    'Xin Gao', 'Can Shen', 'Xinzuo Wang', 'Haochen Shi',
     'Florian Tramèr', 'Neil Gong', 'Virginia Smith', 'Tongliang Liu',
     'Z. Jane Wang', 'Junhao Dong',
   ]) {
@@ -80,7 +80,7 @@ test('complete page preserves safe public-contact and asset boundaries', () => {
   for (const asset of [
     '/people/yiwei-lu.jpg', '/people/sirisha-rambhatla.jpg', '/people/irina-rish.jpg', '/people/david-lie.jpg', '/people/yue-zhao.jpg',
     '/people/xinfeng-li.png', '/people/aditi-raghunathan.jpg', '/people/xinyue-shen.jpg', '/people/wenbo-pan.jpg',
-    '/people/xin-gao.jpg', '/people/can-shen.jpg', '/people/xinzuo-wang.jpg',
+    '/people/xin-gao.jpg', '/people/can-shen.jpg', '/people/xinzuo-wang.jpg', '/people/haochen-shi.jpg',
     '/people/florian-tramer.jpg', '/people/neil-gong.jpg', '/people/virginia-smith.jpg',
     '/people/tongliang-liu.jpg', '/people/z-jane-wang.jpg', '/people/junhao-dong.jpg',
   ]) {
